@@ -1,0 +1,32 @@
+name: BeyondCTAProject
+options:
+    bundleIdPrefix: beyondCta.project
+targets:
+  BeyondCTAProject:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: BeyondCTAProject
+    schemes:
+        BeyondCTAProject:
+        testTargetName: BeyondCTAProjectTests
+    preBuildScripts:
+      - path: ./Scripts/before-compile.sh
+        name: before-compile
+        shell: "/bin/bash"
+
+  BeyondCTAProjectTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: BeyondCTAProjectTests
+    dependencies:
+      - target: BeyondCTAProject
+
+  BeyondCTAProjectUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: BeyondCTAProjectUITests
+    dependencies:
+      - target: BeyondCTAProject
