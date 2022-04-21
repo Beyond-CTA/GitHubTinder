@@ -10,15 +10,13 @@ target 'BeyondCTAProject' do
   pod 'Unio'
   pod 'RxSwift'
   pod 'RxCocoa'
+	pod 'Moya'
+	pod 'Moya/RxSwift'
 
   # Pods for BeyondCTAProject
 
   target 'BeyondCTAProjectTests' do
     inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'BeyondCTAProjectUITests' do
     # Pods for testing
   end
 
