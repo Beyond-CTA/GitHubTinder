@@ -11,4 +11,6 @@ import Moya
 protocol BaseTargetType: TargetType {
     associatedtype Response: Decodable
     associatedtype ErrorResponse: Decodable
+    var baseURL: URL { get }
+    var queryParameters: [String: String] { get }
 }
