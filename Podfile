@@ -10,6 +10,7 @@ target 'BeyondCTAProject' do
   pod 'Unio'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'SnapKit', '~> 5.6.0'
 
   # Pods for BeyondCTAProject
 
