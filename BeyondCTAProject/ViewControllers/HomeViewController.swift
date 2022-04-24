@@ -8,8 +8,8 @@
 import UIKit
 
 final class HomeViewController: UIViewController {
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var searchButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
