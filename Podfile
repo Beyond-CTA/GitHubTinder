@@ -12,6 +12,7 @@ target 'BeyondCTAProject' do
   pod 'RxCocoa'
 	pod 'Moya'
 	pod 'Moya/RxSwift'
+  pod 'SnapKit', '~> 5.6.0'
 
   # Pods for BeyondCTAProject
 
