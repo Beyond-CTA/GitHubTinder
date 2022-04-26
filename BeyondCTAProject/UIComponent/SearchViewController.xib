@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchBackground" translatesAutoresizingMaskIntoConstraints="NO" id="6Ae-ta-aa8">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchBackground" translatesAutoresizingMaskIntoConstraints="NO" id="6Ae-ta-aa8">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="6Ae-ta-aa8" secondAttribute="height" multiplier="375:812" id="aNC-I9-3kb"/>
@@ -62,9 +62,11 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="XV3-nj-dnm"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="square.fill" catalog="system"/>
+                                                    <state key="normal" image="square.fill" catalog="system">
+                                                        <color key="titleColor" systemColor="tintColor"/>
+                                                    </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxb-BF-ZSd">
                                                     <rect key="frame" x="20" y="0.0" width="40" height="20.333333333333332"/>
@@ -85,7 +87,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="bxB-9Y-vQb"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="square.fill" catalog="system"/>
                                                 </button>
@@ -108,7 +110,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="qn9-aM-3Wp"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="square.fill" catalog="system"/>
                                                 </button>
@@ -131,7 +133,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="fMF-oz-kFS"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="square.fill" catalog="system"/>
                                                 </button>
@@ -154,7 +156,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="Ahx-XI-gTh"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="square.fill" catalog="system"/>
                                                 </button>
@@ -182,7 +184,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="INx-2O-EUu"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="square.fill" catalog="system"/>
                                                 </button>
@@ -202,7 +204,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="q8K-PB-ITt"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="square.fill" catalog="system"/>
                                                 </button>
@@ -222,7 +224,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="7iO-ac-fLr"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="square.fill" catalog="system"/>
                                                 </button>
@@ -242,7 +244,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="x4h-FG-c5D"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="square.fill" catalog="system"/>
                                                 </button>
@@ -262,7 +264,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="7ZQ-p1-HkR"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="square.fill" catalog="system"/>
                                                 </button>
@@ -292,7 +294,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="qCc-O8-zHo"/>
                                             </constraints>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" systemColor="systemGray2Color"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="square.fill" catalog="system"/>
                                         </button>
@@ -315,7 +317,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="fTe-y4-7Wq"/>
                                             </constraints>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" systemColor="systemGray2Color"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="square.fill" catalog="system"/>
                                         </button>
@@ -338,7 +340,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="zKb-bD-Vs0"/>
                                             </constraints>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" systemColor="systemGray2Color"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="square.fill" catalog="system"/>
                                         </button>
@@ -363,7 +365,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="AgB-wB-Bmq"/>
                                             </constraints>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" systemColor="systemGray2Color"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="square.fill" catalog="system"/>
                                         </button>
@@ -386,7 +388,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="a5N-Wv-1tQ"/>
                                             </constraints>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" systemColor="systemGray2Color"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="square.fill" catalog="system"/>
                                         </button>
@@ -409,7 +411,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="W6t-5F-4Tc"/>
                                             </constraints>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" systemColor="systemGray2Color"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="square.fill" catalog="system"/>
                                         </button>
@@ -491,6 +493,12 @@
         <image name="square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

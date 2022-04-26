@@ -21,6 +21,6 @@ final class SearchViewController: UIViewController {
         searchBar.layer.shadowRadius = 4
         searchBar.layer.shadowOffset = CGSize(width: 0, height: 2)
         
-        searchButton.layer.cornerRadius = 20.0
+        searchButton.layer.cornerRadius = 12.0
     }
 }
