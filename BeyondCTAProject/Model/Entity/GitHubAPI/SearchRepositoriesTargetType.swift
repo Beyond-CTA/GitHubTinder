@@ -9,6 +9,7 @@ import Foundation
 import Moya
 
 struct SearchRepositoriesTargetType: BaseTargetType {
+
     typealias Response = SearchRepositoriesEntity
     typealias ErrorResponse = GitHubAPI.ErrorModel
 
@@ -40,7 +41,9 @@ struct SearchRepositoriesTargetType: BaseTargetType {
 
     var queryParameters: [String : String] {
         return [
-            "q": "\(query)+language:\(language)"
+            "q": "\(query)+language:\(language)",
+            "sort": "stars",
+            "order": "desc"
         ]
     }
 }
