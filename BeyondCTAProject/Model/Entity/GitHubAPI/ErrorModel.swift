@@ -20,6 +20,6 @@ enum GitHubAPI {
 
     // MARK: - Error
     struct Error: Codable {
-        let message, resource, code: String
+        let field, resource, code: String
     }
 }
