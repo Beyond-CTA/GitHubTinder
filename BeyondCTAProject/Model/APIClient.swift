@@ -20,7 +20,6 @@ final class APIClient: APIClientProtocol {
 
     func send<Request: BaseTargetType>(provider: MoyaProvider<MultiTarget> = MoyaProvider<MultiTarget>(), _ request: Request) -> Single<APIResult<Request.Response, Request.ErrorResponse>> {
         return provider.rx.request(MultiTarget(request))
-            .filterSuccessfulStatusCodes()
             .map { result in
                 guard (200...299).contains(result.statusCode) else {
                     let apiError = try result.map(Request.ErrorResponse.self)
@@ -42,7 +41,7 @@ final class APIClient: APIClientProtocol {
 extension APIClient {
     static var decoder: JSONDecoder {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+//        decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }
 }

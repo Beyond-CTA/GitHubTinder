@@ -10,7 +10,7 @@ import Foundation
 
 extension SearchRepositoriesEntity.Item {
     func traslate() -> RepositoryInfoModel {
-        let readmeURL = URL(string: "https://raw.githubusercontent.com/\(fullName)/\(masterBranch)/README.md")!
+        let readmeURL = URL(string: "https://raw.githubusercontent.com/\(fullName)/\(defaultBranch)/README.md")!
         let readmeBody = try? String(contentsOf: readmeURL)
         return RepositoryInfoModel(
             name: name,

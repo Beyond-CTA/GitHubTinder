@@ -7,6 +7,10 @@
 
 import Foundation
 
+/* リクエストの例
+    https://api.github.com/search/repositories?q=RxSwift+language:swift
+*/
+
 // MARK: - SearchRepositories
 struct SearchRepositoriesEntity: Codable {
     let items: [Item]
@@ -17,7 +21,7 @@ struct SearchRepositoriesEntity: Codable {
         let stargazersCount, watchersCount: Int
         let language: String
         let forksCount, openIssuesCount: Int
-        let masterBranch: String
+        let defaultBranch: String
 
         enum CodingKeys: String, CodingKey {
             case name
@@ -28,7 +32,7 @@ struct SearchRepositoriesEntity: Codable {
             case language
             case forksCount = "forks_count"
             case openIssuesCount = "open_issues_count"
-            case masterBranch = "master_branch"
+            case defaultBranch = "default_branch"
         }
     }
 

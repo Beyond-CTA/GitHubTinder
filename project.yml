@@ -22,11 +22,15 @@ targets:
     sources: BeyondCTAProjectTests
     dependencies:
       - target: BeyondCTAProject
+    settings:
+      INFOPLIST_FILE: BeyondCTAProject/Info.plist
+      LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @loader_path/Frameworks"
+      LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]: "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks"
 
-  BeyondCTAProjectUITests:
-    type: bundle.ui-testing
-    platform: iOS
-    deploymentTarget: "13.0"
-    sources: BeyondCTAProjectUITests
-    dependencies:
-      - target: BeyondCTAProject
+  # BeyondCTAProjectUITests:
+  #   type: bundle.ui-testing
+  #   platform: iOS
+  #   deploymentTarget: "13.0"
+  #   sources: BeyondCTAProjectUITests
+  #   dependencies:
+  #     - target: BeyondCTAProject
