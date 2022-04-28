@@ -13,6 +13,7 @@ target 'BeyondCTAProject' do
 	pod 'Moya'
 	pod 'Moya/RxSwift'
   pod 'SnapKit', '~> 5.6.0'
+	pod 'PKHUD'
 
   # Pods for BeyondCTAProject
 
