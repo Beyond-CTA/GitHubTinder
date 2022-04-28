@@ -5,10 +5,10 @@
 "Beyond CTA"というチーム名は、 `CTAを超える、CTAのその先へ` という思いから決めました。
 
 ## スクリーンショット
-<img src="https://user-images.githubusercontent.com/83959618/165772034-dc30e5b4-e3e8-4bf5-8281-179929137e90.png
-" width="300px"> 
-<img src="https://user-images.githubusercontent.com/83959618/165772531-ad12ff94-286f-4191-9761-aaccb48cbda8.png
-" width="300px"> 
+<img src=https://user-images.githubusercontent.com/83959618/165772034-dc30e5b4-e3e8-4bf5-8281-179929137e90.png
+ width="300px"> 
+<img src=https://user-images.githubusercontent.com/83959618/165772531-ad12ff94-286f-4191-9761-aaccb48cbda8.png
+ width="300px"> 
 
 ## セットアップ
 ```
