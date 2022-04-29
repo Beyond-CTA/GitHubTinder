@@ -24,4 +24,20 @@ extension SearchRepositoriesEntity.Item {
             readmeBody: readmeBody ?? ""
         )
     }
+    
+    func traslate(item: SearchRepositoriesEntity.Item) -> RepositoryInfoModel {
+        let readmeURL = URL(string: "https://raw.githubusercontent.com/\(fullName)/\(defaultBranch)/README.md")!
+        let readmeBody = try? String(contentsOf: readmeURL)
+        return RepositoryInfoModel(
+            name: item.name,
+            fullName: item.fullName,
+            avatarURL: item.owner.avatarURL,
+            stargazersCount: item.stargazersCount,
+            watchersCount: item.watchersCount,
+            language: item.language,
+            forksCount: item.forksCount,
+            openIssuesCount: item.openIssuesCount,
+            readmeBody: readmeBody ?? ""
+        )
+    }
 }
