@@ -10,6 +10,7 @@ import Foundation
 struct RepositoryInfoModel {
     let name: String
     let fullName: String
+    let description: String
     let avatarURL: String
     let stargazersCount: Int
     let watchersCount: Int

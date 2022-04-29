@@ -21,12 +21,14 @@ struct SearchRepositoriesEntity: Codable {
         let stargazersCount, watchersCount: Int
         let language: String
         let forksCount, openIssuesCount: Int
+        let description: String
         let defaultBranch: String
 
         enum CodingKeys: String, CodingKey {
             case name
             case fullName = "full_name"
             case owner
+            case description
             case stargazersCount = "stargazers_count"
             case watchersCount = "watchers_count"
             case language
