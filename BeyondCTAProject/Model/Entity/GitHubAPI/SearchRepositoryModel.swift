@@ -17,4 +17,5 @@ struct RepositoryInfoModel {
     let forksCount: Int
     let openIssuesCount: Int
     let readmeBody: String
+    let description: String
 }

@@ -231,5 +231,6 @@ final class CardCell: UICollectionViewCell {
 //          self?.view.setNeedsLayout()
 //        }
         readmeView.load(markdown: item.readmeBody, css: css)
+        descriptionLabel.text = item.description
     }
 }

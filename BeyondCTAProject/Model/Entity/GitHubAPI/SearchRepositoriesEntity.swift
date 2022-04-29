@@ -22,6 +22,7 @@ struct SearchRepositoriesEntity: Codable {
         let language: String
         let forksCount, openIssuesCount: Int
         let defaultBranch: String
+        let description: String
 
         enum CodingKeys: String, CodingKey {
             case name
@@ -33,6 +34,7 @@ struct SearchRepositoriesEntity: Codable {
             case forksCount = "forks_count"
             case openIssuesCount = "open_issues_count"
             case defaultBranch = "default_branch"
+            case description
         }
     }
 
