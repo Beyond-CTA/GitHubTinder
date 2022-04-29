@@ -15,6 +15,7 @@ extension SearchRepositoriesEntity.Item {
         return RepositoryInfoModel(
             name: name,
             fullName: fullName,
+            description: description,
             avatarURL: owner.avatarURL,
             stargazersCount: stargazersCount,
             watchersCount: watchersCount,
