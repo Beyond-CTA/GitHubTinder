@@ -111,7 +111,7 @@ final class CardCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 10, weight: .medium)
         return label
     }()
-    
+        
     private var disposeBag = DisposeBag()
     
     //MARK: - Lifecycles
@@ -133,13 +133,6 @@ final class CardCell: UICollectionViewCell {
     // MARK: - Helpers
     
     private func configureUI() {
-        
-//        let readmeView = MarkdownView()
-//        readmeView.backgroundColor = .white
-//        readmeView.alpha = 0.1
-//        readmeView.load(markdown: "# Header\nParagraph")
-        
-        
         backImageView.layer.cornerRadius = 30
         layer.shadowOpacity = 0.4
         layer.shadowRadius = 12

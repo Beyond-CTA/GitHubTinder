@@ -51,7 +51,7 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
         // MARK: State
         
         state.hudShow
-//            .filter { $0 == .error || $0 == .success }
+            .filter { $0 == .error || $0 == .success }
             .delay(.milliseconds(700), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
                 state.hudHide.accept(())
