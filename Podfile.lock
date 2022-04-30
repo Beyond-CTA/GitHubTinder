@@ -19,6 +19,8 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - RxTest (6.5.0):
+    - RxSwift (= 6.5.0)
   - SnapKit (5.6.0)
   - SwiftGen (6.5.1)
   - SwiftLint (0.47.1)
@@ -34,6 +36,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxNuke
   - RxSwift
+  - RxTest
   - SnapKit (~> 5.6.0)
   - SwiftGen
   - SwiftLint
@@ -50,6 +53,7 @@ SPEC REPOS:
     - RxNuke
     - RxRelay
     - RxSwift
+    - RxTest
     - SnapKit
     - SwiftGen
     - SwiftLint
@@ -65,11 +69,12 @@ SPEC CHECKSUMS:
   RxNuke: 23175fb4b7cda4e3aa453588d895198ccf88f5ab
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
   Unio: 6e57bd33dbcf38d281b0b420f75c0eae3bef0cf3
 
-PODFILE CHECKSUM: 2d8573484994a540acb8c1ee12cedfe141195e76
+PODFILE CHECKSUM: 0db3334ca9de4cbce1bd59e04e8cb2ce6515de2d
 
 COCOAPODS: 1.11.3
