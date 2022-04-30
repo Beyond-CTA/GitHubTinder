@@ -11,7 +11,7 @@ import XCTest
 class SearchRepositoriesEntityTests: XCTestCase {
 
     func test_translateEntitySuccess() throws {
-        let repositoryInfoModel = SearchRepositoriesEntity.exampleInstance.traslate()
+        let repositoryInfoModel = SearchRepositoriesEntity.exampleInstance.translate()
         dump(repositoryInfoModel)
         XCTAssertEqual(repositoryInfoModel.fullName, RepositoryInfoModel.exampleInstance.fullName)
         XCTAssertNotEqual(repositoryInfoModel.readmeBody, RepositoryInfoModel.exampleInstance.readmeBody)
