@@ -9,6 +9,7 @@ import Foundation
 import Moya
 import RxSwift
 
+/// @mockable
 protocol SearchRepositoryType: AnyObject {
     func populateRepositories(query: String, language: String?) -> Single<[RepositoryInfoModel]>
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepositoryInfoModel {
+struct RepositoryInfoModel: Equatable {
     let name: String
     let fullName: String
     let avatarURL: String
