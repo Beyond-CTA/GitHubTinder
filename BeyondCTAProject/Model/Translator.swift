@@ -9,7 +9,7 @@ import Foundation
 
 
 extension SearchRepositoriesEntity.Item {
-    func traslate() -> RepositoryInfoModel {
+    func translate() -> RepositoryInfoModel {
         let readmeURL = URL(string: "https://raw.githubusercontent.com/\(fullName)/\(defaultBranch)/README.md")!
         let readmeBody = try? String(contentsOf: readmeURL)
         return RepositoryInfoModel(
@@ -22,7 +22,8 @@ extension SearchRepositoriesEntity.Item {
             language: language,
             forksCount: forksCount,
             openIssuesCount: openIssuesCount,
-            readmeBody: readmeBody ?? ""
+            readmeBody: readmeBody ?? "",
+            description: description
         )
     }
 }

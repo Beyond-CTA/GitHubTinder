@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepositoryInfoModel {
+struct RepositoryInfoModel: Equatable {
     let name: String
     let fullName: String
     let description: String
@@ -18,4 +18,5 @@ struct RepositoryInfoModel {
     let forksCount: Int
     let openIssuesCount: Int
     let readmeBody: String
+    let description: String
 }

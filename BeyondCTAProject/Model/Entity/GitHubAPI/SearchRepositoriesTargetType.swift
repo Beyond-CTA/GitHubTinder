@@ -15,6 +15,11 @@ struct SearchRepositoriesTargetType: BaseTargetType {
 
     let query: String
     let language: String
+    
+    init(query: String, language: String?) {
+        self.query = query
+        self.language = language ?? ""
+    }
 
     var baseURL: URL {
        return URL(string: "https://api.github.com")!
@@ -43,7 +48,8 @@ struct SearchRepositoriesTargetType: BaseTargetType {
         return [
             "q": "\(query)+language:\(language)",
             "sort": "stars",
-            "order": "desc"
+            "order": "desc",
+            "per_page": "5"
         ]
     }
 }

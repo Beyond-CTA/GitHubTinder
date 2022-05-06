@@ -7,6 +7,10 @@
 
 import UIKit
 import SnapKit
+import Nuke
+import RxNuke
+import RxSwift
+import MarkdownView
 
 final class CardCell: UICollectionViewCell {
     
@@ -23,7 +27,7 @@ final class CardCell: UICollectionViewCell {
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = Asset.profileSample.image
+        imageView.backgroundColor = .darkGray
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 60 / 2
@@ -39,7 +43,6 @@ final class CardCell: UICollectionViewCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "ReactiveX / RxSwift"
         label.textColor = .white
         label.textAlignment = .left
         label.numberOfLines = 2
@@ -57,20 +60,23 @@ final class CardCell: UICollectionViewCell {
         return label
     }()
     
-    private let readmeView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.alpha = 0.1
+    private let css = [
+        "* { color:white !important;}"
+        ].joined(separator: "\n")
+    
+    private let readmeView: MarkdownView = {
+        let view = MarkdownView()
+        view.backgroundColor = .clear
+        view.isScrollEnabled = true
+        view.isUserInteractionEnabled = true
         return view
     }()
     
-    private let readmeTextView: UITextView = {
-        let textView = UITextView()
-        textView.text = "Reactive Programming in SwiftReactive Programming in SwiftReactive Programming in SwiftReactive Programming in SwiftReactive Programming in SwiftReactive Programming in SwiftReactive Programming in SwiftReactive Programming in SwiftReactive Programming in SwiftReactive Programming in SwiftReactive Programming in SwiftReactive Programming in SwiftReactive Programming in Swift"
-        textView.textColor = .white
-        textView.font = .systemFont(ofSize: 12)
-        textView.backgroundColor = .clear
-        return textView
+    private let readmeBackView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.alpha = 0.9
+        return view
     }()
     
     private let starImageView: UIImageView = {
@@ -105,8 +111,10 @@ final class CardCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 10, weight: .medium)
         return label
     }()
+        
+    private var disposeBag = DisposeBag()
     
-    //MARK: - Lefecycles
+    //MARK: - Lifecycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -115,6 +123,11 @@ final class CardCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     // MARK: - Helpers
@@ -152,16 +165,15 @@ final class CardCell: UICollectionViewCell {
             make.right.equalTo(self).offset(-12)
         }
         
-        addSubview(readmeView)
-        readmeView.snp.makeConstraints { make in
+        addSubview(readmeBackView)
+        readmeBackView.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp_bottomMargin).offset(12)
             make.left.right.equalToSuperview()
         }
         
-        addSubview(readmeTextView)
-        readmeTextView.snp.makeConstraints { make in
-            make.top.left.equalTo(readmeView).offset(2)
-            make.bottom.right.equalTo(readmeView).offset(-2)
+        readmeBackView.addSubview(readmeView)
+        readmeView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(readmeBackView)
         }
         
         let starStack = UIStackView(arrangedSubviews: [starImageView, starCountLabel])
@@ -192,5 +204,26 @@ final class CardCell: UICollectionViewCell {
             make.centerY.equalTo(starStack)
             make.right.equalTo(self).offset(-24)
         }
+    }
+    
+    func setupCellData(item: RepositoryInfoModel) {
+        print("DEBUG: ITEM IS \(item)")
+        nameLabel.text = item.fullName
+
+        guard let url = URL(string: item.avatarURL) else { return }
+        ImagePipeline.shared.rx.loadImage(with: url)
+            .subscribe(onSuccess: { [profileImageView] in
+                profileImageView.image = $0.image
+            }).disposed(by: disposeBag)
+        
+        starCountLabel.text = "\(item.stargazersCount) stars"
+        
+        // called when rendering finished
+//        readmeView.onRendered = { [weak self] height in
+//          self?.readmeView.constant = height
+//          self?.view.setNeedsLayout()
+//        }
+        readmeView.load(markdown: item.readmeBody, css: css)
+        descriptionLabel.text = item.description
     }
 }

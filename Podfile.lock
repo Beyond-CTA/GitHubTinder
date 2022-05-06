@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.6.1)
+  - MarkdownView (1.9.1)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
@@ -7,12 +8,19 @@ PODS:
   - Moya/RxSwift (15.0.0):
     - Moya/Core
     - RxSwift (~> 6.0)
+  - Nuke (9.5.0)
+  - PKHUD (5.3.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
+  - RxNuke (2.0.1):
+    - Nuke (~> 9.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - RxTest (6.5.0):
+    - RxSwift (= 6.5.0)
   - SnapKit (5.6.0)
   - SwiftGen (6.5.1)
   - SwiftLint (0.47.1)
@@ -21,10 +29,14 @@ PODS:
     - RxSwift (~> 6.0)
 
 DEPENDENCIES:
+  - MarkdownView
   - Moya
   - Moya/RxSwift
+  - PKHUD
   - RxCocoa
+  - RxNuke
   - RxSwift
+  - RxTest
   - SnapKit (~> 5.6.0)
   - SwiftGen
   - SwiftLint
@@ -33,10 +45,15 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - MarkdownView
     - Moya
+    - Nuke
+    - PKHUD
     - RxCocoa
+    - RxNuke
     - RxRelay
     - RxSwift
+    - RxTest
     - SnapKit
     - SwiftGen
     - SwiftLint
@@ -44,15 +61,20 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  MarkdownView: 22249778219cc22901f1454e8355298dd0bda7f0
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxNuke: 23175fb4b7cda4e3aa453588d895198ccf88f5ab
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
   Unio: 6e57bd33dbcf38d281b0b420f75c0eae3bef0cf3
 
-PODFILE CHECKSUM: 943e3994d43cff67c4325af32f630339e5f533c0
+PODFILE CHECKSUM: 0db3334ca9de4cbce1bd59e04e8cb2ce6515de2d
 
 COCOAPODS: 1.11.3

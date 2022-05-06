@@ -11,7 +11,7 @@ import XCTest
 class SearchRepositoriesEntityTests: XCTestCase {
 
     func test_translateEntitySuccess() throws {
-        let repositoryInfoModel = SearchRepositoriesEntity.exampleInstance.traslate()
+        let repositoryInfoModel = SearchRepositoriesEntity.exampleInstance.translate()
         dump(repositoryInfoModel)
         XCTAssertEqual(repositoryInfoModel.fullName, RepositoryInfoModel.exampleInstance.fullName)
         XCTAssertNotEqual(repositoryInfoModel.readmeBody, RepositoryInfoModel.exampleInstance.readmeBody)
@@ -37,7 +37,8 @@ extension SearchRepositoriesEntity {
             language: "Swift",
             forksCount: 3937,
             openIssuesCount: 11,
-            defaultBranch: "main"
+            defaultBranch: "main",
+            description: "mock description"
         )
 
 }
@@ -53,6 +54,7 @@ extension RepositoryInfoModel {
         forksCount: 3937,
         openIssuesCount: 11,
         // 分からんから一旦これで
-        readmeBody: ""
+        readmeBody: "",
+        description: "mock description"
     )
 }
