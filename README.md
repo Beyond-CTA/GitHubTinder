@@ -1,4 +1,8 @@
 # 🏆Git Swipe🏆
+## アプリ概要
+**About GitSwipe**
+検索ワードや言語からGitHubのリポジトリを検索し隙間時間にコードの閲覧及び学習ができるモバイルアプリケーション
+
 ## Beyond CTAとは...？
 2022年1月〜3月で開催されたサイバーエージェントさんが企画する長期育成型プログラム"CA Tech Accel"(略してCTA)で出会った24卒iOSチームの3人が、この企画終了後に集まり、チーム開発を行っています。
 
@@ -25,12 +29,15 @@ $ open ./${WORKSPACE_NAME}
 
 ## 使用技術・ライブラリ
 ### アーキテクチャ  
-MVVM
+MVVM(Unioを用いたViewModelの実装)
 ### ライブラリ
 - Moya
 - PKHUD
 - RxSwift
 - RxCocoa
+- RxTest
+- RxNuke
+- MarkdownView
 - SnapKit
 - SwiftGen
 - SwiftLint
