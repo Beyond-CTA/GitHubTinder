@@ -29,6 +29,13 @@ final class HomeViewController: UIViewController {
         return searchBar
     }()
     
+    private let optionButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "slider.vertical.3"), for: .normal)
+        button.tintColor = UIColor(red: 124/255, green: 124/255, blue: 124/255, alpha: 1)
+        return button
+    }()
+    
     private var collectionViewLayout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -101,7 +108,15 @@ final class HomeViewController: UIViewController {
         searchBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.left.equalTo(view).offset(24)
-            make.right.equalTo(view).offset(-24)
+            make.right.equalTo(view).offset(-50)
+            make.height.equalTo(32)
+        }
+        
+        view.addSubview(optionButton)
+        optionButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.left.equalTo(searchBar.snp.right).offset(0)
+            make.right.equalTo(view).offset(-3)
             make.height.equalTo(32)
         }
         
