@@ -22,8 +22,7 @@ extension SearchRepositoriesEntity.Item {
             language: language,
             forksCount: forksCount,
             openIssuesCount: openIssuesCount,
-            readmeBody: readmeBody ?? "",
-            description: description
+            readmeBody: readmeBody ?? ""
         )
     }
 }
