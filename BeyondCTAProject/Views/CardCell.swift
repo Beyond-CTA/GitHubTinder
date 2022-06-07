@@ -134,10 +134,6 @@ final class CardCell: UICollectionViewCell {
     
     private func configureUI() {
         backImageView.layer.cornerRadius = 30
-        layer.shadowOpacity = 0.4
-        layer.shadowRadius = 12
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 8, height: 8)
         
         addSubview(backImageView)
         backImageView.snp.makeConstraints { make in

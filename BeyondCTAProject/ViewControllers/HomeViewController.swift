@@ -17,9 +17,9 @@ final class HomeViewController: UIViewController {
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = L10n.searchPlacaholder
-        searchBar.searchTextField.textColor = .darkGray
+        searchBar.searchTextField.textColor = Asset.searchBar.color
         searchBar.searchTextField.backgroundColor = .clear
-        searchBar.backgroundColor = .white
+        searchBar.backgroundColor = Asset.searchBar.color
         searchBar.layer.shadowColor = UIColor.gray.cgColor
         searchBar.layer.shadowOpacity = 1
         searchBar.layer.shadowRadius = 4
@@ -39,6 +39,7 @@ final class HomeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         collectionView.collectionViewLayout = collectionViewLayout
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = Asset.base.color
         return collectionView
     }()
     
@@ -94,7 +95,7 @@ final class HomeViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = Asset.base.color
         collectionView.register(CardCell.self, forCellWithReuseIdentifier: "cell")
         
         view.addSubview(searchBar)
@@ -109,7 +110,7 @@ final class HomeViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp_bottomMargin).offset(40)
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-30)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }
