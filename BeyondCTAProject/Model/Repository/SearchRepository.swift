@@ -37,9 +37,7 @@ final class SearchRepository: SearchRepositoryType {
     
     func populateRepositories(query: String, language: String? = nil) -> Single<[RepositoryInfoModel]> {
         return fetchRepositories(query: query, language: language).map { items in
-            items.map { item in
-                return item.translate()
-            }
+            items.map { $0.translate() }
         }
     }
 }

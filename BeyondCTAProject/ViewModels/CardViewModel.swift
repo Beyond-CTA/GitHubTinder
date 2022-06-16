@@ -11,14 +11,9 @@ import RxCocoa
 import Unio
 import PKHUD
 
-protocol CardViewModelType: AnyObject {
-    var input: InputWrapper<CardViewModel.Input> { get }
-    var output: OutputWrapper<CardViewModel.Output> { get }
-}
-
 final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
     
-    // MARK: - initializer
+    // MARK: - Initializer
     
     convenience init(searchRepository: SearchRepositoryType = SearchRepository()) {
         self.init(input: Input(), state: State(), extra: Extra(searchRepository: searchRepository))
@@ -50,6 +45,12 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
         
         // MARK: State
         
+        state.repositoryInfoModels
+            .subscribe(onNext: { items in
+                let cardViews = items.map { CardView(item: $0) }
+                state.cardViews.accept(cardViews)
+            }).disposed(by: disposeBag)
+        
         state.hudShow
             .filter { $0 == .error || $0 == .success }
             .delay(.milliseconds(700), scheduler: MainScheduler.instance)
@@ -60,7 +61,8 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
         return Output(
             hudShow: state.hudShow.asObservable(),
             hudHide: state.hudHide.asObservable(),
-            repositoryInfoModels: state.repositoryInfoModels.asObservable()
+            repositoryInfoModels: state.repositoryInfoModels.asObservable(),
+            cardViews: state.cardViews.asObservable()
         )
     }
 }
@@ -80,6 +82,7 @@ extension CardViewModel {
         let hudShow: Observable<HUDContentType>
         let hudHide: Observable<Void>
         let repositoryInfoModels: Observable<[RepositoryInfoModel]>
+        let cardViews: Observable<[CardView]>
     }
     
     //MARK: - State
@@ -88,6 +91,7 @@ extension CardViewModel {
         let hudShow = PublishRelay<HUDContentType>()
         let hudHide = PublishRelay<Void>()
         let repositoryInfoModels = BehaviorRelay<[RepositoryInfoModel]>(value: [])
+        let cardViews = BehaviorRelay<[CardView]>(value: [])
     }
     
     // MARK: - Extra

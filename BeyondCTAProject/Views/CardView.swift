@@ -9,17 +9,26 @@ import UIKit
 import SnapKit
 import Nuke
 import RxNuke
+import RxGesture
 import RxSwift
 import MarkdownView
 
-final class CardCell: UICollectionViewCell {
+final class CardView: UIView {
     
     // MARK: - Properties
+    
+    private let backView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Asset.base.color
+        view.layer.cornerRadius = 30
+        return view
+    }()
     
     private let backImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Asset.cardBackground.image
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 30
         imageView.clipsToBounds = true
         imageView.alpha = 0.8
         return imageView
@@ -121,21 +130,24 @@ final class CardCell: UICollectionViewCell {
         configureUI()
     }
     
+    convenience init(item: RepositoryInfoModel) {
+        self.init()
+        setupCellData(item: item)
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        disposeBag = DisposeBag()
     }
     
     // MARK: - Helpers
     
     private func configureUI() {
-        backImageView.layer.cornerRadius = 30
         
-        addSubview(backImageView)
+        addSubview(backView)
+        backView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        backView.addSubview(backImageView)
         backImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -200,6 +212,8 @@ final class CardCell: UICollectionViewCell {
             make.centerY.equalTo(starStack)
             make.right.equalTo(self).offset(-24)
         }
+        
+        configureGestureRecognizer()
     }
     
     func setupCellData(item: RepositoryInfoModel) {
@@ -221,5 +235,70 @@ final class CardCell: UICollectionViewCell {
 //        }
         readmeView.load(markdown: item.readmeBody, css: css)
         descriptionLabel.text = item.description
+    }
+    
+    private func configureGestureRecognizer() {
+        backImageView.rx.panGesture()
+            .when(.began)
+            .subscribe(onNext: { [superview] _ in
+                superview?.subviews.forEach { $0.layer.removeAllAnimations() }
+            }).disposed(by: disposeBag)
+        
+        backImageView.rx.panGesture()
+            .when(.changed)
+            .subscribe(onNext: { [weak self] sender in
+                guard let me = self else { return }
+                me.panCard(sneder: sender)
+            }).disposed(by: disposeBag)
+        
+        backImageView.rx.panGesture()
+            .when(.ended)
+            .subscribe(onNext: { [weak self] sender in
+                guard let me = self else { return }
+                me.resetCardPosition(sender: sender)
+            }).disposed(by: disposeBag)
+    }
+}
+
+// MARK: - Enum extensions
+
+extension CardView {
+    private enum SwipeDirection: Int {
+        case left = -1
+        case right = 1
+    }
+}
+
+// MARK: - PanGesture extensions
+
+extension CardView {
+    private func resetCardPosition(sender: UIPanGestureRecognizer) {
+        let direction: SwipeDirection = sender.translation(in: nil).x > 100 ? .right : .left
+        let shouldDismissCard = abs(sender.translation(in: nil).x) > 100
+        
+        UIView.animate(
+            withDuration: 0.75,
+            delay: 0,
+            usingSpringWithDamping: 0.6,
+            initialSpringVelocity: 0.1,
+            options: .curveEaseOut,
+            animations: {
+                
+            if shouldDismissCard {
+                let xTranslation = CGFloat(direction.rawValue) * 1000
+                let offScreenTransform = self.transform.translatedBy(x: xTranslation, y: 0)
+                self.transform = offScreenTransform
+            } else {
+                self.transform = .identity
+            }
+        })
+    }
+    
+    private func panCard(sneder: UIPanGestureRecognizer) {
+        let translation = sneder.translation(in: nil)
+        let degrees: CGFloat = translation.x / 20
+        let angle = degrees * .pi / 180
+        let rotationalTransform = CGAffineTransform(rotationAngle: angle)
+        transform = rotationalTransform.translatedBy(x: translation.x, y: translation.y)
     }
 }
