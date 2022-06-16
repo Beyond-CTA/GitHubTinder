@@ -22,12 +22,14 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum Asset {
   public static let accentColor = ColorAsset(name: "AccentColor")
+  public static let base = ColorAsset(name: "base")
   public static let cardBackground = ImageAsset(name: "cardBackground")
   public static let contributorsSample = ImageAsset(name: "contributors_sample")
   public static let contributorsSample2 = ImageAsset(name: "contributors_sample2")
   public static let contributorsSample3 = ImageAsset(name: "contributors_sample3")
   public static let profileSample = ImageAsset(name: "profile_sample")
   public static let searchBackground = ImageAsset(name: "searchBackground")
+  public static let searchBar = ColorAsset(name: "searchBar")
   public static let star = ImageAsset(name: "star")
   public static let tag = ColorAsset(name: "tag")
 }
