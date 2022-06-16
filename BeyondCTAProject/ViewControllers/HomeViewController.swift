@@ -13,6 +13,12 @@ import PKHUD
 final class HomeViewController: UIViewController {
     
     // MARK: - Properties
+
+    private let deckView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -27,20 +33,6 @@ final class HomeViewController: UIViewController {
 //        searchBar.layer.cornerRadius = 20
         searchBar.layer.shadowOffset = CGSize(width: 0, height: 2)
         return searchBar
-    }()
-    
-    private var collectionViewLayout: UICollectionViewLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        return layout
-    }()
-    
-    private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-        collectionView.collectionViewLayout = collectionViewLayout
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = Asset.base.color
-        return collectionView
     }()
     
     private let viewModel: CardViewModelType
@@ -62,8 +54,6 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         
-        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
-        
         // MARK: Inputs
         
         searchBar.rx.searchButtonClicked
@@ -73,7 +63,7 @@ final class HomeViewController: UIViewController {
         searchBar.rx.text.orEmpty
             .bind(to: viewModel.input.searchText)
             .disposed(by: disposeBag)
-        
+                
         // MARK: Outputs
         
         viewModel.output.hudShow
@@ -85,18 +75,18 @@ final class HomeViewController: UIViewController {
             .subscribe(onNext: { _ in
                 HUD.hide()
             }).disposed(by: disposeBag)
-
-        viewModel.output.repositoryInfoModels
-            .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: CardCell.self)) { _, item, cell in
-                cell.setupCellData(item: item)
-            }.disposed(by: disposeBag)
+        
+        viewModel.output.cardViews
+            .subscribe(onNext: { [weak self] items in
+                guard let me = self else { return }
+                me.configureCards(items: items)
+            }).disposed(by: disposeBag)
     }
     
     // MARK: - Helpers
     
     private func configureUI() {
         view.backgroundColor = Asset.base.color
-        collectionView.register(CardCell.self, forCellWithReuseIdentifier: "cell")
         
         view.addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
@@ -106,24 +96,20 @@ final class HomeViewController: UIViewController {
             make.height.equalTo(32)
         }
         
-        view.addSubview(collectionView)
-        collectionView.snp.makeConstraints { make in
+        view.addSubview(deckView)
+        deckView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp_bottomMargin).offset(40)
             make.left.right.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
-}
-
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(
-            width: view.frame.width - 40,
-            height: collectionView.frame.height
-        )
-    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 80
+    private func configureCards(items: [CardView]) {
+        items.forEach { cardView in
+            deckView.addSubview(cardView)
+            cardView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        }
     }
 }
