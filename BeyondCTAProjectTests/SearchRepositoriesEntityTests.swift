@@ -37,8 +37,8 @@ extension SearchRepositoriesEntity {
             language: "Swift",
             forksCount: 3937,
             openIssuesCount: 11,
-            defaultBranch: "main",
-            description: "mock description"
+            description: "mock description",
+            defaultBranch: "main"
         )
 
 }
@@ -47,6 +47,7 @@ extension RepositoryInfoModel {
     static let exampleInstance: Self = RepositoryInfoModel(
         name: "RxSwift",
         fullName: "ReactiveX/RxSwift",
+        description: "mock description",
         avatarURL: "https://avatars.githubusercontent.com/u/6407041?v=4",
         stargazersCount: 22082,
         watchersCount: 22082,
@@ -54,7 +55,6 @@ extension RepositoryInfoModel {
         forksCount: 3937,
         openIssuesCount: 11,
         // 分からんから一旦これで
-        readmeBody: "",
-        description: "mock description"
+        readmeBody: ""
     )
 }
