@@ -5,18 +5,20 @@ target 'BeyondCTAProject' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'SwiftLint'
-  pod 'SwiftGen'
-  pod 'Unio'
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  	pod 'SwiftLint'
+ 	pod 'SwiftGen'
+ 	pod 'Unio'
+ 	pod 'RxSwift'
+  	pod 'RxCocoa'
 	pod 'Moya'
 	pod 'Moya/RxSwift'
-  pod 'SnapKit', '~> 5.6.0'
+  	pod 'SnapKit', '~> 5.6.0'
 	pod 'PKHUD'
 	pod 'RxNuke'
 	pod "MarkdownView"
+ 	pod 'RxGesture'
 
+  
   # Pods for BeyondCTAProject
 
   target 'BeyondCTAProjectTests' do

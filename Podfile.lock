@@ -13,6 +13,9 @@ PODS:
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
+  - RxGesture (4.0.4):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxNuke (2.0.1):
     - Nuke (~> 9.0)
     - RxSwift (~> 6.0)
@@ -34,6 +37,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - PKHUD
   - RxCocoa
+  - RxGesture
   - RxNuke
   - RxSwift
   - RxTest
@@ -50,6 +54,7 @@ SPEC REPOS:
     - Nuke
     - PKHUD
     - RxCocoa
+    - RxGesture
     - RxNuke
     - RxRelay
     - RxSwift
@@ -66,6 +71,7 @@ SPEC CHECKSUMS:
   Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxNuke: 23175fb4b7cda4e3aa453588d895198ccf88f5ab
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
@@ -75,6 +81,6 @@ SPEC CHECKSUMS:
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
   Unio: 6e57bd33dbcf38d281b0b420f75c0eae3bef0cf3
 
-PODFILE CHECKSUM: 0db3334ca9de4cbce1bd59e04e8cb2ce6515de2d
+PODFILE CHECKSUM: daa5aa75c927551c0846af675dcbfa00fc397e3b
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.3
