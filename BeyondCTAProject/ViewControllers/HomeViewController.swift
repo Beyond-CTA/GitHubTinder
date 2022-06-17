@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import PKHUD
+import SwiftMessages
 
 final class HomeViewController: UIViewController {
     
@@ -81,6 +82,12 @@ final class HomeViewController: UIViewController {
                 guard let me = self else { return }
                 me.configureCards(items: items)
             }).disposed(by: disposeBag)
+        
+        viewModel.output.noResults
+            .subscribe(onNext: { [weak self]  _ in
+                guard let me = self else { return }
+                me.showNoResultsAlert(searchText: me.searchBar.text ?? "")
+            }).disposed(by: disposeBag)
     }
     
     // MARK: - Helpers
@@ -111,5 +118,18 @@ final class HomeViewController: UIViewController {
                 make.edges.equalToSuperview()
             }
         }
+    }
+    
+    private func showNoResultsAlert(searchText: String) {
+        let view = MessageView.viewFromNib(layout: .messageView)
+        view.configureTheme(.info)
+        view.configureDropShadow()
+        view.configureContent(
+            title: L10n.noResultsAlertTitle(searchText),
+            body: L10n.noResultsAlertBody,
+            iconText: L10n.noResultsAlertIcon
+        )
+        view.button?.isHidden = true
+        SwiftMessages.show(view: view)
     }
 }
