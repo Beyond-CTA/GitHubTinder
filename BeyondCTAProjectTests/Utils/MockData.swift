@@ -10,12 +10,20 @@ import Foundation
 import RxSwift
 
 enum MockData {
-    static func fetchSingleRepositoryInfoModels() -> Single<[RepositoryInfoModel]> {
+    static func singleFetchRepositoryInfoModels() -> Single<[RepositoryInfoModel]> {
         return Single.just(fetchRepositoryInfoModel())
     }
     
     static func fetchRepositoryInfoModel() -> [RepositoryInfoModel] {
         return items.map { $0.translate() }
+    }
+    
+    static func singleFetchNoHitRepositoryInfoModel() -> Single<[RepositoryInfoModel]> {
+        return Single.just(noHitRepositoryInfoModel())
+    }
+    
+    static func noHitRepositoryInfoModel() -> [RepositoryInfoModel] {
+        return noItem
     }
 }
 
@@ -37,6 +45,10 @@ extension MockData {
                 defaultBranch: .mock
             )
         ]
+    }
+    
+    static var noItem: [RepositoryInfoModel] {
+        return []
     }
 }
 
