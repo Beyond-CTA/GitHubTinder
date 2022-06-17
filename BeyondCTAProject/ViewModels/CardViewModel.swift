@@ -38,7 +38,10 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                         return .just(nil)
                     }
             }.subscribe(onNext: { items in
-                guard let items = items else { return }
+                guard let items = items, !items.isEmpty else {
+                    state.hudHide.accept(())
+                    return state.noResults.accept(())
+                }
                 state.repositoryInfoModels.accept(items)
                 state.hudHide.accept(())
             }).disposed(by: disposeBag)
@@ -49,6 +52,7 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
             .subscribe(onNext: { items in
                 let cardViews = items.map { CardView(item: $0) }
                 state.cardViews.accept(cardViews)
+                state.hudHide.accept(())
             }).disposed(by: disposeBag)
         
         state.hudShow
@@ -58,11 +62,18 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                 state.hudHide.accept(())
             }).disposed(by: disposeBag)
         
+        state.noResults
+            .delay(.microseconds(700), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { _ in
+                state.hudHide.accept(())
+            }).disposed(by: disposeBag)
+        
         return Output(
             hudShow: state.hudShow.asObservable(),
             hudHide: state.hudHide.asObservable(),
             repositoryInfoModels: state.repositoryInfoModels.asObservable(),
-            cardViews: state.cardViews.asObservable()
+            cardViews: state.cardViews.asObservable(),
+            noResults: state.noResults.asObservable()
         )
     }
 }
@@ -83,6 +94,7 @@ extension CardViewModel {
         let hudHide: Observable<Void>
         let repositoryInfoModels: Observable<[RepositoryInfoModel]>
         let cardViews: Observable<[CardView]>
+        let noResults: Observable<Void>
     }
     
     //MARK: - State
@@ -92,6 +104,7 @@ extension CardViewModel {
         let hudHide = PublishRelay<Void>()
         let repositoryInfoModels = BehaviorRelay<[RepositoryInfoModel]>(value: [])
         let cardViews = BehaviorRelay<[CardView]>(value: [])
+        let noResults = PublishRelay<Void>()
     }
     
     // MARK: - Extra
