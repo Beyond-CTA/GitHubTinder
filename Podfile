@@ -17,6 +17,7 @@ target 'BeyondCTAProject' do
 	pod 'RxNuke'
 	pod "MarkdownView"
  	pod 'RxGesture'
+	pod 'SwiftMessages'
 
   
   # Pods for BeyondCTAProject
