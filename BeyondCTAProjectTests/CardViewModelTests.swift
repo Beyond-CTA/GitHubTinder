@@ -31,7 +31,7 @@ final class CardViewModelTests: XCTestCase {
         repository.populateRepositoriesHandler = { (keyword, lang) in
             query = keyword
             language = lang
-            return MockData.fetchSingleRepositoryInfoModels()
+            return MockData.singleFetchRepositoryInfoModels()
         }
         
         testTarget.input.searchText.onNext(.mock)
@@ -61,7 +61,38 @@ final class CardViewModelTests: XCTestCase {
         
         XCTAssertEqual(repository.populateRepositoriesCallCount, 1, "populateRepositoriesメソッドが一回だけ呼ばれているか")
         XCTAssertEqual(hudShow.value, .error, "エラーHUDが表示されるか")
-        XCTAssertNil(hudHide.value, "HUDが非表示になっているか")
+        XCTAssertNotNil(hudHide.value, "HUDが非表示になっているか")
+    }
+    
+    func test_noResults() {
+        dependency = Dependency()
+        let testTarget = dependency.testTarget
+        let repository = dependency.searchRepositoryMock
+        let hudShow = WatchStream(testTarget.output.hudShow)
+        let hudHide = WatchStream(testTarget.output.hudHide)
+        let noResultsAlert = WatchStream(testTarget.output.noResults)
+        let repositoryInfoModels = WatchStream(testTarget.output.repositoryInfoModels)
+
+        var query: String?
+        var language: String?
+        
+        XCTAssertEqual(repository.populateRepositoriesCallCount, 0, "populateRepositoriesメソッドが呼ばれていないか")
+        repository.populateRepositoriesHandler = { (keyword, lang) in
+            query = keyword
+            language = lang
+            return MockData.singleFetchNoHitRepositoryInfoModel()
+        }
+        
+        testTarget.input.searchText.onNext(.mock)
+        testTarget.input.searchButtonClicked.onNext(())
+        
+        XCTAssertEqual(repository.populateRepositoriesCallCount, 1, "populateRepositoriesメソッドが一回だけ呼ばれているか")
+        XCTAssertEqual(hudShow.value, .progress, "progressタイプのHUDが表示されているか")
+        XCTAssertEqual(query, .mock, "検索クエリが流せているか")
+        XCTAssertEqual(repositoryInfoModels.value, MockData.noHitRepositoryInfoModel(), "MockのRepositoriesが返ってくるか")
+        XCTAssertNotNil(hudHide.value, "HUDが非表示になっているか")
+        XCTAssertNotNil(noResultsAlert.value, "検索がヒットしなかった場合のアラートが表示されるか")
+
     }
 }
 
