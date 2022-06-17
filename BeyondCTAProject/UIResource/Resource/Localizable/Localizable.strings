@@ -1,1 +1,4 @@
 "searchPlacaholder" = "Enter search words..";
+"noResultsAlertTitle" = "%@ の結果が見つかりませんでした";
+"noResultsAlertBody" = "キーワードを変えてもう一度検索してください";
+"noResultsAlertIcon" = "🫥";
