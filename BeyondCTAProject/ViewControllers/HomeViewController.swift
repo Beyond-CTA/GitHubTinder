@@ -58,13 +58,16 @@ final class HomeViewController: UIViewController {
         // MARK: Inputs
         
         searchBar.rx.searchButtonClicked
-            .bind(to: viewModel.input.searchButtonClicked)
-            .disposed(by: disposeBag)
+            .subscribe(onNext: { [weak self] _ in
+                guard let me = self else { return }
+                me.viewModel.input.searchButtonClicked.onNext(())
+                me.searchBar.resignFirstResponder()
+            }).disposed(by: disposeBag)
         
         searchBar.rx.text.orEmpty
             .bind(to: viewModel.input.searchText)
             .disposed(by: disposeBag)
-                
+                        
         // MARK: Outputs
         
         viewModel.output.hudShow
@@ -80,6 +83,7 @@ final class HomeViewController: UIViewController {
         viewModel.output.cardViews
             .subscribe(onNext: { [weak self] items in
                 guard let me = self else { return }
+                me.deckView.subviews.forEach { $0.removeFromSuperview() }
                 me.configureCards(items: items)
             }).disposed(by: disposeBag)
         
@@ -106,7 +110,8 @@ final class HomeViewController: UIViewController {
         view.addSubview(deckView)
         deckView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp_bottomMargin).offset(40)
-            make.left.right.equalToSuperview()
+            make.left.equalTo(view.snp_leftMargin).offset(8)
+            make.right.equalTo(view.snp_rightMargin).offset(-8)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
