@@ -121,8 +121,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func showNoResultsAlert(searchText: String) {
-        let view = MessageView.viewFromNib(layout: .messageView)
-        view.configureTheme(.info)
+        let view = MessageView.viewFromNib(layout: .centeredView)
         view.configureDropShadow()
         view.configureContent(
             title: L10n.noResultsAlertTitle(searchText),
