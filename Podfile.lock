@@ -24,6 +24,9 @@ PODS:
   - SnapKit (5.6.0)
   - SwiftGen (6.5.1)
   - SwiftLint (0.47.1)
+  - SwiftMessages (9.0.6):
+    - SwiftMessages/App (= 9.0.6)
+  - SwiftMessages/App (9.0.6)
   - Unio (0.11.0):
     - RxRelay (~> 6.0)
     - RxSwift (~> 6.0)
@@ -40,6 +43,7 @@ DEPENDENCIES:
   - SnapKit (~> 5.6.0)
   - SwiftGen
   - SwiftLint
+  - SwiftMessages
   - Unio
 
 SPEC REPOS:
@@ -57,6 +61,7 @@ SPEC REPOS:
     - SnapKit
     - SwiftGen
     - SwiftLint
+    - SwiftMessages
     - Unio
 
 SPEC CHECKSUMS:
@@ -73,8 +78,9 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
+  SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
   Unio: 6e57bd33dbcf38d281b0b420f75c0eae3bef0cf3
 
-PODFILE CHECKSUM: 0db3334ca9de4cbce1bd59e04e8cb2ce6515de2d
+PODFILE CHECKSUM: d06bfc39c96e773fefc7d572361477ae6b1d2c99
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.3
