@@ -11,11 +11,6 @@ import RxCocoa
 import Unio
 import PKHUD
 
-protocol CardViewModelType: AnyObject {
-    var input: InputWrapper<CardViewModel.Input> { get }
-    var output: OutputWrapper<CardViewModel.Output> { get }
-}
-
 final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
     
     // MARK: - initializer
