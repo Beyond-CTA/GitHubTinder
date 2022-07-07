@@ -43,12 +43,21 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                         return .just(nil)
                     }
             }.subscribe(onNext: { items in
-                guard let items = items else { return }
+                guard let items = items, !items.isEmpty else {
+                    state.hudHide.accept(())
+                    return state.noResults.accept(())
+                }
                 state.repositoryInfoModels.accept(items)
                 state.hudHide.accept(())
             }).disposed(by: disposeBag)
         
         // MARK: State
+        
+        state.noResults
+            .delay(.milliseconds(700), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { _ in
+                state.hudHide.accept(())
+            }).disposed(by: disposeBag)
         
         state.hudShow
             .filter { $0 == .error || $0 == .success }
@@ -61,6 +70,7 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
             hudShow: state.hudShow.asObservable(),
             hudHide: state.hudHide.asObservable(),
             repositoryInfoModels: state.repositoryInfoModels.asObservable()
+            noResults: state.noResults.asObservable()
         )
     }
 }
@@ -80,6 +90,7 @@ extension CardViewModel {
         let hudShow: Observable<HUDContentType>
         let hudHide: Observable<Void>
         let repositoryInfoModels: Observable<[RepositoryInfoModel]>
+        let noResults: Observable<Void>
     }
     
     //MARK: - State
@@ -88,6 +99,7 @@ extension CardViewModel {
         let hudShow = PublishRelay<HUDContentType>()
         let hudHide = PublishRelay<Void>()
         let repositoryInfoModels = BehaviorRelay<[RepositoryInfoModel]>(value: [])
+        let noResults = PublishRelay<Void>()
     }
     
     // MARK: - Extra

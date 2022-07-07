@@ -9,6 +9,12 @@ import Foundation
 
 // swiftlint:disable function_parameter_count identifier_name line_length type_body_length
 public enum L10n {
+  /// キーワードを変えてもう一度検索してください
+  public static let noResultsAlertBody = L10n.tr("Localizable", "noResultsAlertBody")
+  /// %@ の結果が見つかりませんでした
+  public static func noResultsAlertTitle(_ p1: Any) -> String {
+    return L10n.tr("Localizable", "noResultsAlertTitle", String(describing: p1))
+  }
   /// Enter search words..
   public static let searchPlacaholder = L10n.tr("Localizable", "searchPlacaholder")
 }
