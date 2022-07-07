@@ -15,9 +15,7 @@ enum MockData {
     }
     
     static func fetchRepositoryInfoModel() -> [RepositoryInfoModel] {
-        return items.map { item in
-            return item.translate()
-        }
+        return items.map { $0.translate() }
     }
 }
 
@@ -35,8 +33,8 @@ extension MockData {
                 language: .mock,
                 forksCount: .mock,
                 openIssuesCount: .mock,
-                defaultBranch: .mock,
-                description: .mock
+                description: .mock,
+                defaultBranch: .mock
             )
         ]
     }

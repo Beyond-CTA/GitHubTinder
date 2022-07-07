@@ -48,7 +48,7 @@ final class HomeViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     
-    // MARK: - Lifecycles
+    // MARK: - Lifecycle
     
     init(viewModel: CardViewModelType = CardViewModel()) {
         self.viewModel = viewModel
@@ -138,12 +138,12 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(
-            width: view.frame.width - 40,
+            width: view.frame.width - 60,
             height: collectionView.frame.height
         )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 80
+        return 0
     }
 }

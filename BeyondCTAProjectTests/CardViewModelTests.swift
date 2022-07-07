@@ -61,7 +61,9 @@ final class CardViewModelTests: XCTestCase {
         
         XCTAssertEqual(repository.populateRepositoriesCallCount, 1, "populateRepositoriesメソッドが一回だけ呼ばれているか")
         XCTAssertEqual(hudShow.value, .error, "エラーHUDが表示されるか")
-        XCTAssertNil(hudHide.value, "HUDが非表示になっているか")
+        XCTAssertNotNil(hudHide.value, "HUDが非表示になっているか")
+    }
+    
     func test_noResults() {
         dependency = Dependency()
         let testTarget = dependency.testTarget
