@@ -30,14 +30,13 @@ final class HomeViewController: UIViewController {
         return searchBar
     }()
     
-    private var collectionViewLayout: UICollectionViewLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+    private lazy var collectionViewLayout: UICollectionViewLayout = {
+        let layout = ScrollCollectionLayout(size: .zero)
         return layout
     }()
     
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView.collectionViewLayout = collectionViewLayout
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = Asset.base.color
