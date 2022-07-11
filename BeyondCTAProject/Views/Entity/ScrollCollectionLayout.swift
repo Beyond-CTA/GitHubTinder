@@ -24,7 +24,6 @@ final class ScrollCollectionLayout: UICollectionViewFlowLayout {
         
         scrollDirection = .horizontal
         minimumLineSpacing = 100
-        self.itemSize = itemSize
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -98,7 +97,7 @@ final class ScrollCollectionLayout: UICollectionViewFlowLayout {
             return super.layoutAttributesForElements(in: rect)
         }
         
-        if scaleItems == false {
+        if !scaleItems {
             return super.layoutAttributesForElements(in: rect)
         }
         
