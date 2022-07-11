@@ -68,8 +68,12 @@ final class HomeViewController: UIViewController {
         // MARK: Inputs
         
         searchBar.rx.searchButtonClicked
-            .bind(to: viewModel.input.searchButtonClicked)
-            .disposed(by: disposeBag)
+            .subscribe(onNext: { [weak self] _ in
+                guard let me = self else { return }
+                me.searchBar.resignFirstResponder()
+                me.viewModel.input.searchButtonClicked.onNext(())
+                me.collectionView.setContentOffset(CGPoint(x: -20, y: 0), animated: false)
+            }).disposed(by: disposeBag)
         
         searchBar.rx.text.orEmpty
             .bind(to: viewModel.input.searchText)
