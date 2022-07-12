@@ -38,12 +38,9 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        collectionView.collectionViewLayout = collectionViewLayout
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = Asset.base.color
-        return collectionView
+    private lazy var collectionViewLayout: UICollectionViewLayout = {
+        let layout = ScrollCollectionLayout(size: .zero)
+        return layout
     }()
     
     private lazy var collectionView: UICollectionView = {
