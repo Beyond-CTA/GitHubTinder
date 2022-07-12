@@ -33,8 +33,8 @@ final class HomeViewController: UIViewController {
     
     private let optionButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "slider.vertical.3"), for: .normal)
-        button.tintColor = UIColor(red: 124/255, green: 124/255, blue: 124/255, alpha: 1)
+        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.tintColor = Asset.optionButton.color
         return button
     }()
     
