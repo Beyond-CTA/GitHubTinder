@@ -46,6 +46,7 @@ final class HomeViewController: UIViewController {
     private let viewModel: CardViewModelType
     private let disposeBag = DisposeBag()
     
+    private let pagingThresholdOffset = 1
     
     // MARK: - Lifecycle
     
@@ -64,6 +65,11 @@ final class HomeViewController: UIViewController {
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
+        collectionView.rx.willDisplayCell
+            .subscribe(onNext: { [weak self] _, indexPath in
+                guard let me = self, me.collectionView.remainCellsCount(cellIndexPath: indexPath) == me.pagingThresholdOffset else { return }
+                me.viewModel.input.willDisplayCell.onNext(())
+            }).disposed(by: disposeBag)
         // MARK: Inputs
         
         searchBar.rx.searchButtonClicked
