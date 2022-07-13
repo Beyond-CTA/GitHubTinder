@@ -17,17 +17,25 @@ final class HomeViewController: UIViewController {
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
+        searchBar.searchBarStyle = .minimal
         searchBar.placeholder = L10n.searchPlacaholder
-        searchBar.searchTextField.textColor = Asset.searchBar.color
-        searchBar.searchTextField.backgroundColor = .clear
-        searchBar.backgroundColor = Asset.searchBar.color
+        searchBar.searchTextField.textColor = .darkGray
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.backgroundColor = .clear
         searchBar.layer.shadowColor = UIColor.gray.cgColor
         searchBar.layer.shadowOpacity = 1
         searchBar.layer.shadowRadius = 4
         searchBar.searchTextField.layer.cornerRadius = 20
-//        searchBar.layer.cornerRadius = 20
+        searchBar.searchTextField.layer.masksToBounds = true
         searchBar.layer.shadowOffset = CGSize(width: 0, height: 2)
         return searchBar
+    }()
+    
+    private let optionButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.tintColor = Asset.optionButton.color
+        return button
     }()
     
     private lazy var collectionViewLayout: UICollectionViewLayout = {
@@ -113,7 +121,15 @@ final class HomeViewController: UIViewController {
         searchBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.left.equalTo(view).offset(24)
-            make.right.equalTo(view).offset(-24)
+            make.right.equalTo(view).offset(-50)
+            make.height.equalTo(32)
+        }
+        
+        view.addSubview(optionButton)
+        optionButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.left.equalTo(searchBar.snp.right).offset(0)
+            make.right.equalTo(view).offset(-3)
             make.height.equalTo(32)
         }
         

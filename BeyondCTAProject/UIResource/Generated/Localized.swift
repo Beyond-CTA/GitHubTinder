@@ -17,6 +17,8 @@ public enum L10n {
   }
   /// Enter search words..
   public static let searchPlacaholder = L10n.tr("Localizable", "searchPlacaholder")
+  /// slider.vertical.3
+  public static let verticalSlider = L10n.tr("Localizable", "verticalSlider")
 }
 // swiftlint:enable function_parameter_count identifier_name line_length type_body_length
 
