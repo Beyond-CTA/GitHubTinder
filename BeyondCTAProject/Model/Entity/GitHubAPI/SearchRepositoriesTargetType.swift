@@ -15,10 +15,12 @@ struct SearchRepositoriesTargetType: BaseTargetType {
 
     let query: String
     let language: String
+    let pagingOffset: Int
     
-    init(query: String, language: String?) {
+    init(query: String, language: String?, pagingOffset: Int?) {
         self.query = query
         self.language = language ?? ""
+        self.pagingOffset = pagingOffset ?? 1
     }
 
     var baseURL: URL {
@@ -49,7 +51,8 @@ struct SearchRepositoriesTargetType: BaseTargetType {
             "q": "\(query)+language:\(language)",
             "sort": "stars",
             "order": "desc",
-            "per_page": "5"
+            "per_page": "10",
+            "page": "\(pagingOffset)"
         ]
     }
 }

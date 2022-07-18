@@ -12,7 +12,7 @@ import XCTest
 
 class SearchRepositoriesTests: XCTestCase {
     let disposeBag = DisposeBag()
-    let targetType = SearchRepositoriesTargetType(query: "RxSwift", language: "swift")
+    let targetType = SearchRepositoriesTargetType(query: "RxSwift", language: "swift", pagingOffset: 1)
 
     func test_APIResponseSuccess() {
         let endpointClosure = { (target: MultiTarget) -> Endpoint in

@@ -30,20 +30,45 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
             .withLatestFrom(input.searchText)
             .flatMapLatest { text -> Single<[RepositoryInfoModel]?> in
                 state.hudShow.accept(.progress)
-                return extra.searchRepository.populateRepositories(query: text, language: "Swift")
-                    .timeout(.seconds(5), scheduler: MainScheduler.instance)
-                    .map(Optional.some)
-                    .catch { error in
-                        state.hudShow.accept(.error)
-                        return .just(nil)
-                    }
+                state.pagingOffset.accept(1)
+                return extra.searchRepository.populateRepositories(
+                    query: text,
+                    language: "Swift", // FixMe
+                    pagingOffset: state.pagingOffset.value
+                )
+                .timeout(.seconds(5), scheduler: MainScheduler.instance)
+                .map(Optional.some)
+                .catch { error in
+                    state.hudShow.accept(.error)
+                    return .just(nil)
+                }
             }.subscribe(onNext: { items in
                 guard let items = items, !items.isEmpty else {
                     state.hudHide.accept(())
                     return state.noResults.accept(())
                 }
                 state.repositoryInfoModels.accept(items)
+                state.pagingOffset.accept(state.pagingOffset.value + 1)
                 state.hudHide.accept(())
+            }).disposed(by: disposeBag)
+        
+        input.willDisplayCell
+            .withLatestFrom(input.searchText)
+            .flatMapLatest {text -> Single<[RepositoryInfoModel]?> in
+                return extra.searchRepository.populateRepositories(
+                    query: text,
+                    language: "Swift", // FixMe
+                    pagingOffset: state.pagingOffset.value
+                )
+                .timeout(.seconds(5), scheduler: MainScheduler.instance)
+                .map(Optional.some)
+                .catch { error in
+                    return .just(nil)
+                }
+            }.subscribe(onNext: { items in
+                guard let items = items else { return }
+                state.repositoryInfoModels.accept(state.repositoryInfoModels.value + items)
+                state.pagingOffset.accept(state.pagingOffset.value + 1)
             }).disposed(by: disposeBag)
         
         // MARK: State
@@ -64,7 +89,7 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
         return Output(
             hudShow: state.hudShow.asObservable(),
             hudHide: state.hudHide.asObservable(),
-            repositoryInfoModels: state.repositoryInfoModels.asObservable()
+            repositoryInfoModels: state.repositoryInfoModels.asObservable(),
             noResults: state.noResults.asObservable()
         )
     }
@@ -77,6 +102,7 @@ extension CardViewModel {
     struct Input: InputType {
         let searchText = PublishRelay<String>()
         let searchButtonClicked = PublishRelay<Void>()
+        let willDisplayCell = PublishRelay<Void>()
     }
     
     // MARK: - Output
@@ -94,6 +120,7 @@ extension CardViewModel {
         let hudShow = PublishRelay<HUDContentType>()
         let hudHide = PublishRelay<Void>()
         let repositoryInfoModels = BehaviorRelay<[RepositoryInfoModel]>(value: [])
+        let pagingOffset = BehaviorRelay<Int>(value: 1)
         let noResults = PublishRelay<Void>()
     }
     

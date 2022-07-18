@@ -26,12 +26,14 @@ final class CardViewModelTests: XCTestCase {
         let repositoryInfoModels = WatchStream(testTarget.output.repositoryInfoModels)
         var query: String?
         var language: String? // 絞り込み検索の仕様次第
+        var pagingOffset: Int?
         
         XCTAssertEqual(repository.populateRepositoriesCallCount, 0, "populateRepositoriesメソッドが呼ばれていないか")
-        repository.populateRepositoriesHandler = { (keyword, lang) in
+        repository.populateRepositoriesHandler = { (keyword, lang, offset) in
             query = keyword
             language = lang
-            return MockData.fetchSingleRepositoryInfoModels()
+            pagingOffset = offset
+            return MockData.singleFetchRepositoryInfoModels()
         }
         
         testTarget.input.searchText.onNext(.mock)
@@ -52,7 +54,7 @@ final class CardViewModelTests: XCTestCase {
         let hudHide = WatchStream(testTarget.output.hudHide)
         
         XCTAssertEqual(repository.populateRepositoriesCallCount, 0, "populateRepositoriesメソッドが呼ばれていないか")
-        repository.populateRepositoriesHandler = { _, _ in
+        repository.populateRepositoriesHandler = { _, _, _ in
             return Single.error(MockError.error)
         }
         
