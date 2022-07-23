@@ -34,13 +34,6 @@ final class CardCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let tagView: UIView = {
-        let view = UIView()
-        view.backgroundColor = Asset.tag.color
-        view.layer.cornerRadius = 10
-        return view
-    }()
-    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -77,6 +70,16 @@ final class CardCell: UICollectionViewCell {
         view.backgroundColor = .clear
         view.alpha = 0.9
         return view
+    }()
+    
+    let noReadmeLabel: UILabel = {
+        let label = UILabel()
+        label.text = L10n.noReadmeText
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 32, weight: .bold)
+        label.numberOfLines = 2
+        label.alpha = 0
+        return label
     }()
     
     private let starImageView: UIImageView = {
@@ -172,6 +175,13 @@ final class CardCell: UICollectionViewCell {
             make.top.left.right.bottom.equalTo(readmeBackView)
         }
         
+        addSubview(noReadmeLabel)
+        noReadmeLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(readmeBackView).offset(-100)
+            make.left.equalTo(readmeBackView).offset(43)
+            make.right.equalTo(readmeBackView).offset(-43)
+        }
+        
         let starStack = UIStackView(arrangedSubviews: [starImageView, starCountLabel])
         starStack.axis = .horizontal
         starStack.spacing = 6
@@ -220,6 +230,7 @@ final class CardCell: UICollectionViewCell {
 //          self?.view.setNeedsLayout()
 //        }
         readmeView.load(markdown: item.readmeBody, css: css)
+        noReadmeLabel.alpha = item.readmeBody.isEmpty ? 0.8 : 0
         descriptionLabel.text = item.description
     }
 }

@@ -2,3 +2,4 @@
 "noResultsAlertTitle" = "%@ の結果が見つかりませんでした";
 "noResultsAlertBody" = "キーワードを変えてもう一度検索してください";
 "verticalSlider" = "slider.vertical.3";
+"noReadmeText" = "There is not README.";
