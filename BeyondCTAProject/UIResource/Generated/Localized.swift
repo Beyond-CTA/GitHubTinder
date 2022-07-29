@@ -9,7 +9,7 @@ import Foundation
 
 // swiftlint:disable function_parameter_count identifier_name line_length type_body_length
 public enum L10n {
-  /// There is not README.
+  /// There is no README.
   public static let noReadmeText = L10n.tr("Localizable", "noReadmeText")
   /// キーワードを変えてもう一度検索してください
   public static let noResultsAlertBody = L10n.tr("Localizable", "noResultsAlertBody")
