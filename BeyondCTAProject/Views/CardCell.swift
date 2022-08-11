@@ -213,7 +213,6 @@ final class CardCell: UICollectionViewCell {
     }
     
     func setupCellData(item: RepositoryInfoModel) {
-        print("DEBUG: ITEM IS \(item)")
         nameLabel.text = item.fullName
 
         guard let url = URL(string: item.avatarURL) else { return }
