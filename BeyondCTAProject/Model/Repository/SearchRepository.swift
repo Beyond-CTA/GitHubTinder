@@ -15,7 +15,7 @@ protocol SearchRepositoryType: AnyObject {
 }
 
 final class SearchRepository: SearchRepositoryType {
-    let provider:  MoyaProvider<MultiTarget>
+    let provider: MoyaProvider<MultiTarget>
     
     init(provider: MoyaProvider<MultiTarget> = MoyaProvider<MultiTarget>()) {
         self.provider = provider
