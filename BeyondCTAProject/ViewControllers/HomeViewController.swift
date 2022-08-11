@@ -51,6 +51,8 @@ final class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    private var repositories: [RepositoryInfoModel] = []
+    
     private let viewModel: CardViewModelType
     private let disposeBag = DisposeBag()
     
@@ -78,6 +80,17 @@ final class HomeViewController: UIViewController {
                 guard let me = self, me.collectionView.remainCellsCount(cellIndexPath: indexPath) == me.pagingThresholdOffset else { return }
                 me.viewModel.input.willDisplayCell.onNext(())
             }).disposed(by: disposeBag)
+        
+        collectionView.rx.itemSelected
+            .subscribe(with: self,
+                       onNext: { me, indexPath in
+                let repository = me.repositories[indexPath.row]
+                let url = URL(string: repository.url)
+                let viewController = WebViewController(url: url)
+                viewController.modalPresentationStyle = .fullScreen
+                me.present(viewController, animated: true)
+            }).disposed(by: disposeBag)
+        
         // MARK: Inputs
         
         searchBar.rx.searchButtonClicked
@@ -103,6 +116,13 @@ final class HomeViewController: UIViewController {
             .subscribe(onNext: { _ in
                 HUD.hide()
             }).disposed(by: disposeBag)
+        
+        viewModel.output.repositoryInfoModels
+            .subscribe(
+                with: self,
+                onNext: { me, repositories in
+                    me.repositories = repositories
+                }).disposed(by: disposeBag)
 
         viewModel.output.repositoryInfoModels
             .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: CardCell.self)) { _, item, cell in
