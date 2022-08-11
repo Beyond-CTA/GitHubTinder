@@ -6,10 +6,7 @@
 
 import Foundation
 import Moya
-import PKHUD
-import RxCocoa
 import RxSwift
-import UIKit
 import Unio
 
 
@@ -41,15 +38,5 @@ class SearchRepositoryTypeMock: SearchRepositoryType {
         }
         fatalError("populateRepositoriesHandler returns can't have a default value thus its handler must be set")
     }
-//
-//    private(set) var populateCardViewCallCount = 0
-//    var populateCardViewHandler: (([RepositoryInfoModel]) -> ([CardView]))?
-//    func populateCardView(items: [RepositoryInfoModel]) -> [CardView] {
-//        populateRepositoriesCallCount += 1
-//        if let populateCardViewHandler = populateCardViewHandler {
-//            return populateCardViewHandler(items)
-//        }
-//        fatalError("populateCardViewHandler returns can't have a default value thus its handler must be set")
-//    }
 }
 
