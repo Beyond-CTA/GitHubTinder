@@ -16,7 +16,11 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
     // MARK: - initializer
     
     convenience init(searchRepository: SearchRepositoryType = SearchRepository()) {
-        self.init(input: Input(), state: State(), extra: Extra(searchRepository: searchRepository))
+        self.init(
+            input: Input(),
+            state: State(),
+            extra: Extra(searchRepository: searchRepository)
+        )
     }
     
     static func bind(from dependency: Dependency<Input, State, Extra>, disposeBag: DisposeBag) -> Output {
