@@ -34,14 +34,10 @@ final class WebViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         backButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                guard let me = self else { return }
+            .subscribe(with: self,
+                       onNext: { me, _ in
                 me.dismiss(animated: true)
             }).disposed(by: disposeBag)
-        
-        guard let url = url else { return }
-        let request = URLRequest(url: url)
-        webView.load(request)
     }
     
     required init?(coder: NSCoder) {
@@ -53,6 +49,7 @@ final class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        loadWebView(url: url)
     }
     
     override func viewDidLayoutSubviews() {
@@ -77,5 +74,11 @@ final class WebViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.equalTo(view).offset(24)
         }
+    }
+    
+    private func loadWebView(url: URL?) {
+        guard let url = url else { return }
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 }
