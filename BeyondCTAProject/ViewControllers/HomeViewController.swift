@@ -25,7 +25,7 @@ final class HomeViewController: UIViewController {
         searchBar.layer.shadowColor = UIColor.gray.cgColor
         searchBar.layer.shadowOpacity = 1
         searchBar.layer.shadowRadius = 4
-        searchBar.searchTextField.layer.cornerRadius = 20
+        searchBar.searchTextField.layer.cornerRadius = 10
         searchBar.searchTextField.layer.masksToBounds = true
         searchBar.layer.shadowOffset = CGSize(width: 0, height: 2)
         return searchBar
@@ -94,8 +94,8 @@ final class HomeViewController: UIViewController {
         // MARK: Inputs
         
         searchBar.rx.searchButtonClicked
-            .subscribe(onNext: { [weak self] _ in
-                guard let me = self else { return }
+            .subscribe(with: self,
+                       onNext: { me, _ in
                 me.searchBar.resignFirstResponder()
                 me.viewModel.input.searchButtonClicked.onNext(())
                 me.collectionView.setContentOffset(CGPoint(x: -20, y: 0), animated: false)
@@ -118,21 +118,20 @@ final class HomeViewController: UIViewController {
             }).disposed(by: disposeBag)
         
         viewModel.output.repositoryInfoModels
-            .subscribe(
-                with: self,
-                onNext: { me, repositories in
-                    me.repositories = repositories
-                }).disposed(by: disposeBag)
+            .subscribe(with: self,
+                       onNext: { me, repositories in
+                me.repositories = repositories
+            }).disposed(by: disposeBag)
 
         viewModel.output.repositoryInfoModels
             .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: CardCell.self)) { _, item, cell in
                 cell.setupCellData(item: item)
             }.disposed(by: disposeBag)
-                
+        
         viewModel.output.noResults
-            .subscribe(onNext: { [weak self] _ in
-                guard let me = self,
-                let searchText = me.searchBar.text else { return }
+            .subscribe(with: self,
+                       onNext: { me, _ in
+                guard let searchText = me.searchBar.text else { return }
                 me.showNoResultsAlert(searchText: searchText)
             }).disposed(by: disposeBag)
     }
@@ -153,10 +152,8 @@ final class HomeViewController: UIViewController {
         
         view.addSubview(optionButton)
         optionButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
-            make.left.equalTo(searchBar.snp.right).offset(0)
-            make.right.equalTo(view).offset(-3)
-            make.height.equalTo(32)
+            make.right.equalToSuperview().offset(-20)
+            make.centerY.equalTo(searchBar)
         }
         
         view.addSubview(collectionView)
