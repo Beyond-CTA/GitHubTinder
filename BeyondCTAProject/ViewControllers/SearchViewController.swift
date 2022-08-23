@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class SearchViewController: UIViewController {
     
@@ -14,12 +15,19 @@ final class SearchViewController: UIViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var searchButton: UIButton!
     
+    private let disposeBag = DisposeBag()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
+        searchButton.rx.tap
+            .subscribe(with: self,
+                       onNext: { me, _ in
+                me.dismiss(animated: true)
+            }).disposed(by: disposeBag)
     }
     
     // MARK: - Helpers

@@ -91,6 +91,14 @@ final class HomeViewController: UIViewController {
                 me.present(viewController, animated: true)
             }).disposed(by: disposeBag)
         
+        optionButton.rx.tap
+            .subscribe(with: self,
+                       onNext: { me, _ in
+                let viewController = SearchViewController()
+                viewController.modalPresentationStyle = .fullScreen
+                me.present(viewController, animated: true)
+            }).disposed(by: disposeBag)
+        
         // MARK: Inputs
         
         searchBar.rx.searchButtonClicked
