@@ -8,13 +8,21 @@
 import UIKit
 
 final class SearchViewController: UIViewController {
+    
+    // MARK: - Properties
+    
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var searchButton: UIButton!
+    
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
+    
+    // MARK: - Helpers
     
     private func configureUI() {
         searchBar.searchTextField.backgroundColor = .white
