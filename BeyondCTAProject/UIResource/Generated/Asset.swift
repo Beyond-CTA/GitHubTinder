@@ -24,6 +24,7 @@ public enum Asset {
   public static let accentColor = ColorAsset(name: "AccentColor")
   public static let background = ColorAsset(name: "background")
   public static let base = ColorAsset(name: "base")
+  public static let basePink = ColorAsset(name: "basePink")
   public static let cardBackground = ImageAsset(name: "cardBackground")
   public static let contributorsSample = ImageAsset(name: "contributors_sample")
   public static let contributorsSample2 = ImageAsset(name: "contributors_sample2")
@@ -33,7 +34,6 @@ public enum Asset {
   public static let searchBackground = ImageAsset(name: "searchBackground")
   public static let searchBar = ColorAsset(name: "searchBar")
   public static let star = ImageAsset(name: "star")
-  public static let tag = ColorAsset(name: "tag")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
