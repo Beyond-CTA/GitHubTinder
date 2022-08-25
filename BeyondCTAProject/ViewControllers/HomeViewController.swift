@@ -140,7 +140,7 @@ final class HomeViewController: UIViewController {
             .subscribe(with: self,
                        onNext: { me, _ in
                 guard let searchText = me.searchBar.text else { return }
-                me.showNoResultsAlert(searchText: searchText)
+                me.showNoResultsAlert(with: searchText)
             }).disposed(by: disposeBag)
     }
     
@@ -172,7 +172,7 @@ final class HomeViewController: UIViewController {
         }
     }
     
-    private func showNoResultsAlert(searchText: String) {
+    private func showNoResultsAlert(with searchText: String) {
         let view = MessageView.viewFromNib(layout: .centeredView)
         view.configureDropShadow()
         view.configureContent(
