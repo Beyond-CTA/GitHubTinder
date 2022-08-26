@@ -5,7 +5,6 @@
 //  Created by Taisei Sakamoto on 2022/04/28.
 //
 
-import UIKit
 import RxSwift
 import RxCocoa
 import Unio
@@ -13,7 +12,7 @@ import PKHUD
 
 final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
     
-    // MARK: - initializer
+    // MARK: - Initializer
     
     convenience init(searchRepository: SearchRepositoryType = SearchRepository()) {
         self.init(
