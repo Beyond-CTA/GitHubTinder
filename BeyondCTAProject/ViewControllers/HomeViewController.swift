@@ -133,7 +133,7 @@ final class HomeViewController: UIViewController {
 
         viewModel.output.repositoryInfoModels
             .bind(to: collectionView.rx.items(cellIdentifier: "cell", cellType: CardCell.self)) { _, item, cell in
-                cell.setupCellData(item: item)
+                cell.setupCellData(with: item)
             }.disposed(by: disposeBag)
         
         viewModel.output.noResults
