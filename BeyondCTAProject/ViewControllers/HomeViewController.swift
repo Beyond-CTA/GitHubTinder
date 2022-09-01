@@ -10,10 +10,13 @@ import SnapKit
 import RxSwift
 import PKHUD
 import SwiftMessages
+import Lottie
 
 final class HomeViewController: UIViewController {
     
     // MARK: - Properties
+    
+    private var animationView = AnimationView()
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -142,6 +145,16 @@ final class HomeViewController: UIViewController {
                 guard let searchText = me.searchBar.text else { return }
                 me.showNoResultsAlert(with: searchText)
             }).disposed(by: disposeBag)
+        
+        viewModel.output.loadingAnimationShow
+            .subscribe(onNext: { _ in
+                self.showLoadingAnimation()
+            }).disposed(by: disposeBag)
+        
+        viewModel.output.loadingAnimationHide
+            .subscribe(onNext: { _ in
+                self.animationView.removeFromSuperview()
+            }).disposed(by: disposeBag)
     }
     
     // MARK: - Helpers
@@ -182,6 +195,15 @@ final class HomeViewController: UIViewController {
         view.button?.isHidden = true
         view.iconLabel?.isHidden = true
         SwiftMessages.show(view: view)
+    }
+    
+    private func showLoadingAnimation() {
+        animationView = AnimationView(name: "97930-loading")
+        animationView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        view.addSubview(animationView)
     }
 }
 

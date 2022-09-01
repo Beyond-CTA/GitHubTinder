@@ -17,6 +17,7 @@ target 'BeyondCTAProject' do
 	pod 'RxNuke'
 	pod "MarkdownView"
 	pod 'SwiftMessages'
+	pod 'lottie-ios'
 
   # Pods for BeyondCTAProject
 

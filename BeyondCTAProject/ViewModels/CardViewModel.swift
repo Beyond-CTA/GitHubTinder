@@ -32,7 +32,8 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
         input.searchButtonClicked
             .withLatestFrom(input.searchText)
             .flatMapLatest { text -> Single<[RepositoryInfoModel]?> in
-                state.hudShow.accept(.progress)
+//                state.hudShow.accept(.progress)
+                state.loadingAnimationShow.accept(())
                 state.pagingOffset.accept(1)
                 return extra.searchRepository.populateRepositories(
                     query: text,
@@ -42,12 +43,13 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                 .timeout(.seconds(5), scheduler: MainScheduler.instance)
                 .map(Optional.some)
                 .catch { error in
-                    state.hudShow.accept(.error)
+//                    state.hudShow.accept(.error)
                     return .just(nil)
                 }
             }.subscribe(onNext: { items in
                 guard let items = items, !items.isEmpty else {
-                    state.hudHide.accept(())
+//                    state.hudHide.accept(())
+                    state.loadingAnimationHide.accept(())
                     return state.noResults.accept(())
                 }
                 state.repositoryInfoModels.accept(items)
@@ -82,6 +84,13 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                 state.hudHide.accept(())
             }).disposed(by: disposeBag)
         
+        state.loadingAnimationShow
+            .delay(.milliseconds(700), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { _ in
+//                state.hudHide.accept(())
+                state.loadingAnimationHide.accept(())
+            }).disposed(by: disposeBag)
+        
         state.hudShow
             .filter { $0 == .error || $0 == .success }
             .delay(.milliseconds(700), scheduler: MainScheduler.instance)
@@ -93,7 +102,9 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
             hudShow: state.hudShow.asObservable(),
             hudHide: state.hudHide.asObservable(),
             repositoryInfoModels: state.repositoryInfoModels.asObservable(),
-            noResults: state.noResults.asObservable()
+            noResults: state.noResults.asObservable(),
+            loadingAnimationShow: state.loadingAnimationShow.asObservable(),
+            loadingAnimationHide: state.loadingAnimationHide.asObservable()
         )
     }
 }
@@ -115,6 +126,8 @@ extension CardViewModel {
         let hudHide: Observable<Void>
         let repositoryInfoModels: Observable<[RepositoryInfoModel]>
         let noResults: Observable<Void>
+        let loadingAnimationShow: Observable<Void>
+        let loadingAnimationHide: Observable<Void>
     }
     
     //MARK: - State
@@ -125,6 +138,8 @@ extension CardViewModel {
         let repositoryInfoModels = BehaviorRelay<[RepositoryInfoModel]>(value: [])
         let pagingOffset = BehaviorRelay<Int>(value: 1)
         let noResults = PublishRelay<Void>()
+        let loadingAnimationShow = PublishRelay<Void>()
+        let loadingAnimationHide = PublishRelay<Void>()
     }
     
     // MARK: - Extra
