@@ -54,7 +54,12 @@ final class CardCell: UICollectionViewCell {
     }()
     
     private let css = [
-        "* { color:white !important;}"
+        "* { color:white !important;}",
+        "code { color:black !important;}",
+        "code { background-color:white !important;}",
+        "pre { color:black !important;}",
+        "pre { background-color:white !important;}",
+        "span { color:black !important;}",
         ].joined(separator: "\n")
     
     private let readmeView: MarkdownView = {
