@@ -13,17 +13,32 @@ import WebKit
 final class WebViewController: UIViewController {
     
     // MARK: - Properties
+    private let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+    
+    private let headerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "optionButton")
+        return view
+    }()
     
     private let backButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setTitle("✗", for: UIControl.State.normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.backgroundColor = UIColor(named: "basePink")
         button.tintColor = .white
+        button.layer.cornerRadius = 15
         return button
     }()
     
-    private let webView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
-    private let gradientLayer = CAGradientLayer()
+    private let mainView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .green
+        return view
+    }()
     
+    private let webView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
+
     private let url: URL?
     private let disposeBag = DisposeBag()
     
@@ -52,27 +67,39 @@ final class WebViewController: UIViewController {
         loadWebView(url: url)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 180)
-    }
     
     // MARK: - Helpers
     
     private func configureUI() {
-        view.addSubview(webView)
-        webView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        view.addSubview(headerView)
+        headerView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.height.equalTo(statusBarHeight + 45)
         }
         
-        gradientLayer.colors = [Asset.background.color, UIColor.clear.cgColor]
-        gradientLayer.locations = [0, 1]
-        view.layer.addSublayer(gradientLayer)
-
-        view.addSubview(backButton)
+        headerView.addSubview(backButton)
         backButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.left.equalTo(view).offset(24)
+            make.left.equalToSuperview().offset(10)
+            make.bottom.equalTo(-10)
+            make.height.equalTo(30)
+            make.width.equalTo(30)
+        }
+        
+        view.addSubview(mainView)
+        mainView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(statusBarHeight + 45)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        mainView.addSubview(webView)
+        webView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
     
