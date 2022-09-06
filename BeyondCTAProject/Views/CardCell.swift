@@ -64,7 +64,8 @@ final class CardCell: UICollectionViewCell {
     
     private let readmeView: MarkdownView = {
         let view = MarkdownView()
-        view.backgroundColor = .clear
+//        view.backgroundColor = .clear
+        view.backgroundColor = .black
         view.isScrollEnabled = true
         view.isUserInteractionEnabled = true
         return view
@@ -73,7 +74,7 @@ final class CardCell: UICollectionViewCell {
     private let readmeBackView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        view.alpha = 0.9
+        view.alpha = 0.8
         return view
     }()
     
@@ -198,23 +199,24 @@ final class CardCell: UICollectionViewCell {
         addSubview(starStack)
         starStack.snp.makeConstraints { make in
             make.top.equalTo(readmeView.snp_bottomMargin).offset(20)
-            make.left.equalTo(self).offset(24)
+//            make.left.equalTo(self).offset(24)
+            make.right.equalTo(self).offset(-24)
             make.bottom.equalTo(self).offset(-10)
         }
         
-        let contributorsStack = UIStackView(arrangedSubviews: [contributorImageView, contributorsCount])
-        contributorsStack.axis = .horizontal
-        contributorsStack.spacing = 8
-        
-        contributorImageView.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 30, height: 30))
-        }
-        
-        addSubview(contributorsStack)
-        contributorsStack.snp.makeConstraints { make in
-            make.centerY.equalTo(starStack)
-            make.right.equalTo(self).offset(-24)
-        }
+//        let contributorsStack = UIStackView(arrangedSubviews: [contributorImageView, contributorsCount])
+//        contributorsStack.axis = .horizontal
+//        contributorsStack.spacing = 8
+//
+//        contributorImageView.snp.makeConstraints { make in
+//            make.size.equalTo(CGSize(width: 30, height: 30))
+//        }
+//
+//        addSubview(contributorsStack)
+//        contributorsStack.snp.makeConstraints { make in
+//            make.centerY.equalTo(starStack)
+//            make.right.equalTo(self).offset(-24)
+//        }
     }
     
     func setupCellData(item: RepositoryInfoModel) {
