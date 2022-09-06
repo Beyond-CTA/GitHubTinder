@@ -15,6 +15,14 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "logoGray")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
@@ -72,6 +80,13 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        view.addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(250)
+            make.height.equalTo(250)
+        }
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
@@ -117,6 +132,7 @@ final class HomeViewController: UIViewController {
         
         viewModel.output.hudShow
             .subscribe(onNext: { type in
+                self.logoImageView.alpha = 0
                 HUD.show(type)
             }).disposed(by: disposeBag)
         
