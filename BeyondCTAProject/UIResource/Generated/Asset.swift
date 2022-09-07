@@ -30,7 +30,7 @@ public enum Asset {
   public static let contributorsSample = ImageAsset(name: "contributors_sample")
   public static let contributorsSample2 = ImageAsset(name: "contributors_sample2")
   public static let contributorsSample3 = ImageAsset(name: "contributors_sample3")
-  public static let homeBackground = ColorAsset(name: "homeBackground")
+  public static let homeBackGround = ColorAsset(name: "homeBackGround")
   public static let logoGrayImage = ImageAsset(name: "logoGrayImage")
   public static let logoImage = ImageAsset(name: "logoImage")
   public static let optionButton = ColorAsset(name: "optionButton")
