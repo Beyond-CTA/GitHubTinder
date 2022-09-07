@@ -21,7 +21,6 @@ final class CardCell: UICollectionViewCell {
         imageView.image = Asset.cardBackground.image
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.alpha = 0.8
         return imageView
     }()
     

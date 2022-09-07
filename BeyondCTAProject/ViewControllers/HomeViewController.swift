@@ -23,6 +23,12 @@ final class HomeViewController: UIViewController {
         return imageView
     }()
     
+    private let backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Asset.backgroundImage.image
+        return imageView
+    }()
+    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
@@ -55,7 +61,7 @@ final class HomeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView.collectionViewLayout = collectionViewLayout
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = Asset.base.color
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -80,13 +86,6 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        view.addSubview(logoImageView)
-        logoImageView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.width.equalTo(250)
-            make.height.equalTo(250)
-        }
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
@@ -163,6 +162,11 @@ final class HomeViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
+        view.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         view.backgroundColor = Asset.base.color
         collectionView.register(CardCell.self, forCellWithReuseIdentifier: "cell")
         
