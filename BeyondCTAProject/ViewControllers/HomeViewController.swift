@@ -15,6 +15,20 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Asset.logoImage.image
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
+    private let backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Asset.backgroundImage.image
+        return imageView
+    }()
+    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
@@ -47,7 +61,7 @@ final class HomeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView.collectionViewLayout = collectionViewLayout
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = Asset.base.color
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -117,6 +131,7 @@ final class HomeViewController: UIViewController {
         
         viewModel.output.hudShow
             .subscribe(onNext: { type in
+                self.logoImageView.alpha = 0
                 HUD.show(type)
             }).disposed(by: disposeBag)
         
@@ -147,6 +162,19 @@ final class HomeViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
+        view.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        backgroundImageView.addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(250)
+            make.height.equalTo(250)
+        }
+        
         view.backgroundColor = Asset.base.color
         collectionView.register(CardCell.self, forCellWithReuseIdentifier: "cell")
         
