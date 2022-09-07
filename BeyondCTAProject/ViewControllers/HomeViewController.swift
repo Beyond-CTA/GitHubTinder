@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "logoGray")
+        imageView.image = Asset.logoImage.image
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -165,6 +165,14 @@ final class HomeViewController: UIViewController {
         view.addSubview(backgroundImageView)
         backgroundImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        backgroundImageView.addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(250)
+            make.height.equalTo(250)
         }
         
         view.backgroundColor = Asset.base.color
