@@ -48,7 +48,7 @@ final class HomeViewController: UIViewController {
     private let optionButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
-        button.tintColor = Asset.basePink.color
+        button.tintColor = Asset.optionButton.color
         return button
     }()
     
