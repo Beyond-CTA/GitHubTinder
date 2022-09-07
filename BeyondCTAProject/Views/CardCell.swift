@@ -21,7 +21,6 @@ final class CardCell: UICollectionViewCell {
         imageView.image = Asset.cardBackground.image
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.alpha = 0.8
         return imageView
     }()
     
@@ -51,6 +50,17 @@ final class CardCell: UICollectionViewCell {
         label.numberOfLines = 2
         label.font = .systemFont(ofSize: 12, weight: .medium)
         return label
+    }()
+    
+    private let toWebViewIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "arrow.up.forward.app")
+//        imageView.tintColor = Asset.basePink.color
+        imageView.tintColor = .white
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
+        return imageView
     }()
     
     private let css = [
@@ -168,6 +178,13 @@ final class CardCell: UICollectionViewCell {
             make.top.equalTo(nameLabel.snp_bottomMargin).offset(12)
             make.left.equalTo(self).offset(12)
             make.right.equalTo(self).offset(-12)
+        }
+        
+        addSubview(toWebViewIcon)
+        toWebViewIcon.snp.makeConstraints { make in
+            make.right.equalTo(self).offset(-20)
+            make.top.equalTo(self).offset(20)
+            make.size.equalTo(CGSize(width: 30, height: 30))
         }
         
         addSubview(readmeBackView)
