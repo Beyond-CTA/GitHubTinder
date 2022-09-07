@@ -1,8 +1,8 @@
 //
-//  CardViewModel.swift
+//  SearchViewModel.swift
 //  BeyondCTAProject
 //
-//  Created by Taisei Sakamoto on 2022/04/28.
+//  Created by Taisei Sakamoto on 2022/08/24.
 //
 
 import RxSwift
@@ -10,8 +10,8 @@ import RxCocoa
 import Unio
 import PKHUD
 
-final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
-    
+final class SearchViewModel: UnioStream<SearchViewModel>, SearchViewModelType {
+        
     // MARK: - Initializer
     
     convenience init(searchRepository: SearchRepositoryType = SearchRepository()) {
@@ -27,54 +27,45 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
         let state = dependency.state
         let extra = dependency.extra
         
-        // MARK: Inputs
+        // MARK: - Inputs
+        
+//        input.searchButtonClicked
+//            .withLatestFrom(input.searchText)
+//            .flatMapLatest { text -> Single<[RepositoryInfoModel]?> in
+//                state.hudShow.accept(.progress)
+//                print("DEBUG: aaa \(state.optionLanguage.value): \(text)")
+//                return extra.searchRepository.populateRepositories(
+//                    query: text,
+//                    language: state.optionLanguage.value,
+//                    pagingOffset: 1
+//                )
+//                .timeout(.seconds(20), scheduler: MainScheduler.instance)
+//                .map(Optional.some)
+//                .catch { error in
+//                    state.hudShow.accept(.error)
+//                    return .just(nil)
+//                }
+//            }.subscribe(onNext: { items in
+//                guard let items = items, !items.isEmpty else {
+//                    state.hudHide.accept(())
+//                    return state.noResults.accept(())
+//                }
+//                state.repositoryInfoModels.accept(items)
+//                state.hudHide.accept(())
+//            }).disposed(by: disposeBag)
         
         input.searchButtonClicked
             .withLatestFrom(input.searchText)
-            .flatMapLatest { text -> Single<[RepositoryInfoModel]?> in
-                state.hudShow.accept(.progress)
-                state.pagingOffset.accept(1)
-                return extra.searchRepository.populateRepositories(
-                    query: text,
-                    language: "Swift", // FixMe
-                    pagingOffset: state.pagingOffset.value
-                )
-                .timeout(.seconds(5), scheduler: MainScheduler.instance)
-                .map(Optional.some)
-                .catch { error in
-                    state.hudShow.accept(.error)
-                    return .just(nil)
-                }
-            }.subscribe(onNext: { items in
-                guard let items = items, !items.isEmpty else {
-                    state.hudHide.accept(())
-                    return state.noResults.accept(())
-                }
-                state.repositoryInfoModels.accept(items)
-                state.pagingOffset.accept(state.pagingOffset.value + 1)
-                state.hudHide.accept(())
+            .subscribe(onNext: { text in
+                state.hoge.accept((text, state.optionLanguage.value))
             }).disposed(by: disposeBag)
         
-        input.willDisplayCell
-            .withLatestFrom(input.searchText)
-            .flatMapLatest {text -> Single<[RepositoryInfoModel]?> in
-                return extra.searchRepository.populateRepositories(
-                    query: text,
-                    language: "Swift", // FixMe
-                    pagingOffset: state.pagingOffset.value
-                )
-                .timeout(.seconds(5), scheduler: MainScheduler.instance)
-                .map(Optional.some)
-                .catch { error in
-                    return .just(nil)
-                }
-            }.subscribe(onNext: { items in
-                guard let items = items else { return }
-                state.repositoryInfoModels.accept(state.repositoryInfoModels.value + items)
-                state.pagingOffset.accept(state.pagingOffset.value + 1)
+        input.optionLanguage
+            .subscribe(onNext: { language in
+                state.optionLanguage.accept(language)
             }).disposed(by: disposeBag)
         
-        // MARK: State
+        // MARK: - State
         
         state.noResults
             .delay(.milliseconds(700), scheduler: MainScheduler.instance)
@@ -93,20 +84,22 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
             hudShow: state.hudShow.asObservable(),
             hudHide: state.hudHide.asObservable(),
             repositoryInfoModels: state.repositoryInfoModels.asObservable(),
-            noResults: state.noResults.asObservable()
+            noResults: state.noResults.asObservable(),
+            hoge: state.hoge.asObservable()
         )
     }
 }
 
-extension CardViewModel {
+extension SearchViewModel {
     
     // MARK: - Input
     
     struct Input: InputType {
         let searchText = PublishRelay<String>()
         let searchButtonClicked = PublishRelay<Void>()
-        let willDisplayCell = PublishRelay<Void>()
         let optionLanguage = PublishRelay<String>()
+        let optionStar = PublishRelay<Int>()
+        let optionContributors = PublishRelay<Int>()
     }
     
     // MARK: - Output
@@ -116,16 +109,19 @@ extension CardViewModel {
         let hudHide: Observable<Void>
         let repositoryInfoModels: Observable<[RepositoryInfoModel]>
         let noResults: Observable<Void>
+        let hoge: Observable<(String, String)>
     }
     
-    //MARK: - State
+    // MARK: - State
     
     struct State: StateType {
         let hudShow = PublishRelay<HUDContentType>()
         let hudHide = PublishRelay<Void>()
         let repositoryInfoModels = BehaviorRelay<[RepositoryInfoModel]>(value: [])
-        let pagingOffset = BehaviorRelay<Int>(value: 1)
+//        let pagingOffset = BehaviorRelay<Int>(value: 1)
         let noResults = PublishRelay<Void>()
+        let optionLanguage = BehaviorRelay<String>(value: "")
+        let hoge = BehaviorRelay<(String, String)>(value: ("", ""))
     }
     
     // MARK: - Extra

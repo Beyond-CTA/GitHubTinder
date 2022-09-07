@@ -51,6 +51,8 @@ final class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    private var optionLanguage: String?
+    
     private var repositories: [RepositoryInfoModel] = []
     
     private let viewModel: CardViewModelType
