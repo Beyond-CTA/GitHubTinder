@@ -58,6 +58,7 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
         input.willDisplayCell
             .withLatestFrom(input.searchText)
             .flatMapLatest {text -> Single<[RepositoryInfoModel]?> in
+                state.hudShow.accept(.progress)
                 return extra.searchRepository.populateRepositories(
                     query: text,
                     language: "Swift", // FixMe
@@ -72,6 +73,7 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                 guard let items = items else { return }
                 state.repositoryInfoModels.accept(state.repositoryInfoModels.value + items)
                 state.pagingOffset.accept(state.pagingOffset.value + 1)
+                state.hudHide.accept(())
             }).disposed(by: disposeBag)
         
         // MARK: State
