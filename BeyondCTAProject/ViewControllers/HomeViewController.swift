@@ -29,6 +29,12 @@ final class HomeViewController: UIViewController {
         return imageView
     }()
     
+    private let customView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
@@ -49,6 +55,26 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.tintColor = Asset.optionButton.color
+        button.addTarget(self, action: #selector(tap), for: .touchUpInside)
+        return button
+    }()
+    
+    private let sampleButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("Swift", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .black
+        button.addTarget(self, action: #selector(tap2), for: .touchUpInside)
+        return button
+    }()
+    
+    private let sampleButton2: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.tintColor = .red
+        button.backgroundColor = .blue
+        button.addTarget(self, action: #selector(tap3), for: .touchUpInside)
         return button
     }()
     
@@ -108,9 +134,10 @@ final class HomeViewController: UIViewController {
         optionButton.rx.tap
             .subscribe(with: self,
                        onNext: { me, _ in
-                let viewController = SearchViewController()
-                viewController.modalPresentationStyle = .fullScreen
-                me.present(viewController, animated: true)
+//                let viewController = SearchViewController()
+//                viewController.modalPresentationStyle = .fullScreen
+//                me.present(viewController, animated: true)
+//                me.view.addSubview(CustomView)
             }).disposed(by: disposeBag)
         
         // MARK: Inputs
@@ -157,6 +184,47 @@ final class HomeViewController: UIViewController {
                 guard let searchText = me.searchBar.text else { return }
                 me.showNoResultsAlert(with: searchText)
             }).disposed(by: disposeBag)
+        
+    }
+    
+    @objc func tap() {
+        print("@@@")
+        self.view.addSubview(customView)
+        
+        customView.snp.makeConstraints { make in
+//            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(200)
+            make.bottom.equalToSuperview()
+            make.right.equalToSuperview()
+//            make.left.equalToSuperview().offset(100)
+            make.left.equalToSuperview()
+        }
+        
+        customView.addSubview(sampleButton)
+        sampleButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+        
+        customView.addSubview(sampleButton2)
+        sampleButton2.snp.makeConstraints { make in
+            
+            make.centerY.equalToSuperview()
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+            make.bottom.equalToSuperview().offset(-30)
+        }
+    }
+    
+    @objc func tap2() {
+        print("@")
+        searchBar.text = sampleButton.titleLabel?.text
+    }
+    
+    @objc func tap3() {
+        customView.removeFromSuperview()
     }
     
     // MARK: - Helpers
@@ -198,6 +266,7 @@ final class HomeViewController: UIViewController {
             make.left.right.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+        
     }
     
     private func showNoResultsAlert(with searchText: String) {
