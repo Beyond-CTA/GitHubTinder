@@ -318,10 +318,10 @@ final class HomeViewController: UIViewController {
 //MARK: searchOptionViewの動きをすぐ見たいときは下記のコメントアウトを外す
         self.view.addSubview(searchOptionView)
         searchOptionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(50)
-            make.bottom.equalToSuperview()
-            make.right.equalToSuperview()
-            make.left.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom).offset(20)
+            make.bottom.equalToSuperview().offset(-30)
+            make.right.equalToSuperview().offset(-10)
+            make.left.equalToSuperview().offset(10)
         }
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
@@ -399,6 +399,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func openSearchOption() {
+        self.searchOptionView.alpha = 1
         self.view.addSubview(searchOptionView)
         searchOptionView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom).offset(30)
@@ -1248,7 +1249,11 @@ final class HomeViewController: UIViewController {
     
     
     @objc func closeButtonTapped() {
-        searchOptionView.removeFromSuperview()
+        UIView.animate(withDuration: 0.2, delay: 0.05, options: UIView.AnimationOptions.allowUserInteraction, animations: {
+            self.searchOptionView.alpha = 0.05
+        }) { (completed) in
+            self.searchOptionView.removeFromSuperview()
+        }
     }
 
     // MARK: - Helpers
