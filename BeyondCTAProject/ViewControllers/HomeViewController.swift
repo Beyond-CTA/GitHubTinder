@@ -29,9 +29,9 @@ final class HomeViewController: UIViewController {
         return imageView
     }()
     
-    private let customView: UIView = {
+    private let searchOptionView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .gray
         return view
     }()
     
@@ -55,26 +55,231 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.tintColor = Asset.optionButton.color
-        button.addTarget(self, action: #selector(tap), for: .touchUpInside)
+        button.addTarget(HomeViewController.self, action: #selector(tap), for: .touchUpInside)
         return button
     }()
     
-    private let sampleButton: UIButton = {
+    private let javaButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("Java", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(javaBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let javaScriptButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("JavaScript", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(javaScriptBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let typeScriptButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("TypeScript", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(typeScriptBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let pythonButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("Python", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(pythonBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let rubyButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("Ruby", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(rubyBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let phpButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("PHP", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(phpBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let swiftButton: UIButton = {
         let button = UIButton()
 //        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("Swift", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = .black
-        button.addTarget(self, action: #selector(tap2), for: .touchUpInside)
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(swiftBtnTapped), for: .touchUpInside)
         return button
     }()
     
-    private let sampleButton2: UIButton = {
+    private let kotlinButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("Kotlin", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(kotlinBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let flutterButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("Flutter", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(flutterBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let cButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("C", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(cBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let csharpButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("C#", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(csharpBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let goButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("Go", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(goBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let rustButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("Rust", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(rustBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let scalaButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("Scala", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(scalaBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    
+    private let cplusButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("C++", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(cplusBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let rButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("R", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(rBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let htmlButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("HTML", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(htmlBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let cssButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("CSS", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .orange
+        button.addTarget(HomeViewController.self, action: #selector(cssBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    
+    
+    private let starButton: UIButton = {
+        let button = UIButton()
+        button.setImage(Asset.star.image, for: .normal)
+        button.setTitle("@@@", for: .normal)
+        button.tintColor = .red
+        button.setTitleColor(.red, for: .normal)
+        button.backgroundColor = .lightGray
+        button.addTarget(HomeViewController.self, action: #selector(starButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let forkButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "tuningfork"), for: .normal)
+        button.setTitle("@@@", for: .normal)
+        button.tintColor = .red
+        button.setTitleColor(.red, for: .normal)
+        button.backgroundColor = .lightGray
+        button.addTarget(HomeViewController.self, action: #selector(forkButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    
+    
+    
+    
+    
+    
+    private let closeButton: UIButton = {
+        let button = UIButton()
+//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
+        button.setTitle("閉じる", for: .normal)
         button.tintColor = .red
         button.backgroundColor = .blue
-        button.addTarget(self, action: #selector(tap3), for: .touchUpInside)
+        button.addTarget(HomeViewController.self, action: #selector(closeButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -112,6 +317,208 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
+        self.view.addSubview(searchOptionView)
+        
+        searchOptionView.snp.makeConstraints { make in
+//            make.top.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom).offset(50)
+            make.bottom.equalToSuperview()
+            make.right.equalToSuperview()
+//            make.left.equalToSuperview().offset(100)
+            make.left.equalToSuperview()
+        }
+
+        
+        searchOptionView.addSubview(javaButton)
+        javaButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(30)
+            make.left.equalToSuperview().offset(20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(javaScriptButton)
+        javaScriptButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(30)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(typeScriptButton)
+        typeScriptButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(30)
+            make.right.equalToSuperview().offset(-20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        
+        searchOptionView.addSubview(pythonButton)
+        pythonButton.snp.makeConstraints { make in
+            make.top.equalTo(javaButton.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(rubyButton)
+        rubyButton.snp.makeConstraints { make in
+            make.top.equalTo(javaScriptButton.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(phpButton)
+        phpButton.snp.makeConstraints { make in
+            make.top.equalTo(typeScriptButton.snp.bottom).offset(20)
+            make.right.equalToSuperview().offset(-20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        
+        searchOptionView.addSubview(swiftButton)
+        swiftButton.snp.makeConstraints { make in
+            make.top.equalTo(pythonButton.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(kotlinButton)
+        kotlinButton.snp.makeConstraints { make in
+            make.top.equalTo(rubyButton.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(flutterButton)
+        flutterButton.snp.makeConstraints { make in
+            make.top.equalTo(phpButton.snp.bottom).offset(20)
+            make.right.equalToSuperview().offset(-20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        
+        
+        searchOptionView.addSubview(cButton)
+        cButton.snp.makeConstraints { make in
+            make.top.equalTo(swiftButton.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(csharpButton)
+        csharpButton.snp.makeConstraints { make in
+            make.top.equalTo(kotlinButton.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(cplusButton)
+        cplusButton.snp.makeConstraints { make in
+            make.top.equalTo(flutterButton.snp.bottom).offset(20)
+            make.right.equalToSuperview().offset(-20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        
+        
+        searchOptionView.addSubview(goButton)
+        goButton.snp.makeConstraints { make in
+            make.top.equalTo(cButton.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(rustButton)
+        rustButton.snp.makeConstraints { make in
+            make.top.equalTo(csharpButton.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(scalaButton)
+        scalaButton.snp.makeConstraints { make in
+            make.top.equalTo(cplusButton.snp.bottom).offset(20)
+            make.right.equalToSuperview().offset(-20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        
+        searchOptionView.addSubview(rButton)
+        rButton.snp.makeConstraints { make in
+            make.top.equalTo(goButton.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(htmlButton)
+        htmlButton.snp.makeConstraints { make in
+            make.top.equalTo(rustButton.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(cssButton)
+        cssButton.snp.makeConstraints { make in
+            make.top.equalTo(scalaButton.snp.bottom).offset(20)
+            make.right.equalToSuperview().offset(-20)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        searchOptionView.addSubview(closeButton)
+        closeButton.snp.makeConstraints { make in
+            make.height.equalTo(60)
+            make.right.equalToSuperview().offset(-20)
+            make.left.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview().offset(-40)
+        }
+        
+        searchOptionView.addSubview(starButton)
+        starButton.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(20)
+            make.bottom.equalTo(closeButton.snp.top).offset(-40)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        searchOptionView.addSubview(forkButton)
+        forkButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(closeButton.snp.top).offset(-40)
+            make.width.equalTo(110)
+            make.height.equalTo(60)
+        }
+        
+        
+        
+        
+        
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
@@ -189,44 +596,147 @@ final class HomeViewController: UIViewController {
     
     @objc func tap() {
         print("@@@")
-        self.view.addSubview(customView)
-        
-        customView.snp.makeConstraints { make in
-//            make.top.equalToSuperview()
-            make.top.equalToSuperview().offset(200)
-            make.bottom.equalToSuperview()
-            make.right.equalToSuperview()
-//            make.left.equalToSuperview().offset(100)
-            make.left.equalToSuperview()
-        }
-        
-        customView.addSubview(sampleButton)
-        sampleButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.width.equalTo(100)
-            make.height.equalTo(100)
-        }
-        
-        customView.addSubview(sampleButton2)
-        sampleButton2.snp.makeConstraints { make in
-            
-            make.centerY.equalToSuperview()
-            make.width.equalTo(100)
-            make.height.equalTo(100)
-            make.bottom.equalToSuperview().offset(-30)
-        }
+//        self.view.addSubview(searchOptionView)
+//
+//        searchOptionView.snp.makeConstraints { make in
+////            make.top.equalToSuperview()
+//            make.top.equalToSuperview().offset(200)
+//            make.bottom.equalToSuperview()
+//            make.right.equalToSuperview()
+////            make.left.equalToSuperview().offset(100)
+//            make.left.equalToSuperview()
+//        }
+//
+//        searchOptionView.addSubview(swiftButton)
+//        swiftButton.snp.makeConstraints { make in
+//            make.centerX.equalToSuperview()
+//            make.centerY.equalToSuperview()
+//            make.width.equalTo(100)
+//            make.height.equalTo(100)
+//        }
+//
+//        searchOptionView.addSubview(javaButton)
+//        javaButton.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(30)
+//            make.left.equalToSuperview().offset(20)
+//            make.width.equalTo(130)
+//            make.height.equalTo(80)
+//        }
+//
+//        searchOptionView.addSubview(closeButton)
+//        closeButton.snp.makeConstraints { make in
+//            make.height.equalTo(60)
+//            make.right.equalToSuperview().offset(-30)
+//            make.left.equalToSuperview().offset(30)
+//            make.bottom.equalToSuperview().offset(-40)
+//        }
     }
     
-    @objc func tap2() {
+    @objc func javaBtnTapped() {
         print("@")
-        searchBar.text = sampleButton.titleLabel?.text
+        searchBar.text = javaButton.titleLabel?.text
     }
     
-    @objc func tap3() {
-        customView.removeFromSuperview()
+    @objc func javaScriptBtnTapped() {
+        print("@")
+        searchBar.text = javaScriptButton.titleLabel?.text
     }
     
+    @objc func typeScriptBtnTapped() {
+        print("@")
+        searchBar.text = typeScriptButton.titleLabel?.text
+    }
+    
+    @objc func pythonBtnTapped() {
+        print("@")
+        searchBar.text = pythonButton.titleLabel?.text
+    }
+    
+    @objc func rubyBtnTapped() {
+        print("@")
+        searchBar.text = rubyButton.titleLabel?.text
+    }
+    
+    @objc func phpBtnTapped() {
+        print("@")
+        searchBar.text = phpButton.titleLabel?.text
+    }
+    
+    @objc func swiftBtnTapped() {
+        print("@")
+        searchBar.text = swiftButton.titleLabel?.text
+    }
+    
+    @objc func kotlinBtnTapped() {
+        print("@")
+        searchBar.text = kotlinButton.titleLabel?.text
+    }
+    
+    @objc func flutterBtnTapped() {
+        print("@")
+        searchBar.text = flutterButton.titleLabel?.text
+    }
+    
+    @objc func cBtnTapped() {
+        print("@")
+        searchBar.text = cButton.titleLabel?.text
+    }
+    
+    @objc func csharpBtnTapped() {
+        print("@")
+        searchBar.text = csharpButton.titleLabel?.text
+    }
+    
+    @objc func cplusBtnTapped() {
+        print("@")
+        searchBar.text = cplusButton.titleLabel?.text
+    }
+    
+    @objc func goBtnTapped() {
+        print("@")
+        searchBar.text = goButton.titleLabel?.text
+    }
+    
+    @objc func rustBtnTapped() {
+        print("@")
+        searchBar.text = rustButton.titleLabel?.text
+    }
+    
+    @objc func scalaBtnTapped() {
+        print("@")
+        searchBar.text = scalaButton.titleLabel?.text
+    }
+    
+    @objc func rBtnTapped() {
+        print("@")
+        searchBar.text = rButton.titleLabel?.text
+    }
+    
+    @objc func htmlBtnTapped() {
+        print("@")
+        searchBar.text = htmlButton.titleLabel?.text
+    }
+    
+    @objc func cssBtnTapped() {
+        print("@")
+        searchBar.text = cssButton.titleLabel?.text
+    }
+    
+    @objc func starButtonTapped() {
+        print("☆")
+    }
+    
+    @objc func forkButtonTapped() {
+        print("フォーク")
+    }
+    
+    
+    
+    
+    @objc func closeButtonTapped() {
+        searchOptionView.removeFromSuperview()
+    }
+
     // MARK: - Helpers
     
     private func configureUI() {
