@@ -56,7 +56,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.tintColor = Asset.optionButton.color
-        button.addTarget(HomeViewController.self, action: #selector(tap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(openSearchOption), for: .touchUpInside)
         return button
     }()
     
@@ -340,16 +340,13 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         
-        self.view.addSubview(searchOptionView)
-        
-        searchOptionView.snp.makeConstraints { make in
-//            make.top.equalToSuperview()
-            make.top.equalTo(searchBar.snp.bottom).offset(50)
-            make.bottom.equalToSuperview()
-            make.right.equalToSuperview()
-//            make.left.equalToSuperview().offset(100)
-            make.left.equalToSuperview()
-        }
+//        self.view.addSubview(searchOptionView)
+//        searchOptionView.snp.makeConstraints { make in
+//            make.top.equalTo(searchBar.snp.bottom).offset(50)
+//            make.bottom.equalToSuperview()
+//            make.right.equalToSuperview()
+//            make.left.equalToSuperview()
+//        }
 
         
         searchOptionView.addSubview(javaButton)
@@ -616,18 +613,15 @@ final class HomeViewController: UIViewController {
         
     }
     
-    @objc func tap() {
-        print("@@@")
-//        self.view.addSubview(searchOptionView)
-//
-//        searchOptionView.snp.makeConstraints { make in
-////            make.top.equalToSuperview()
-//            make.top.equalToSuperview().offset(200)
-//            make.bottom.equalToSuperview()
-//            make.right.equalToSuperview()
-////            make.left.equalToSuperview().offset(100)
-//            make.left.equalToSuperview()
-//        }
+    @objc func openSearchOption() {
+        self.view.addSubview(searchOptionView)
+        searchOptionView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(50)
+            make.bottom.equalToSuperview()
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
+        }
+
 //
 //        searchOptionView.addSubview(swiftButton)
 //        swiftButton.snp.makeConstraints { make in
