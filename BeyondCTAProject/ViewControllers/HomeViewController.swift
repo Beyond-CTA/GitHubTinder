@@ -66,6 +66,8 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
+    private var selectedLanguage = ""
+    
     //MARK: 言語ボタン
     private let javaButton: UIButton = {
         let button = UIButton()
@@ -321,15 +323,15 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureSearchOptionViewUI()
-        print(height, width)
+        
 //MARK: searchOptionViewの動きをすぐ見たいときは下記のコメントアウトを外す
-        self.view.addSubview(searchOptionView)
-        searchOptionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(20)
-            make.bottom.equalToSuperview().offset(-30)
-            make.right.equalToSuperview().offset(-10)
-            make.left.equalToSuperview().offset(10)
-        }
+//        self.view.addSubview(searchOptionView)
+//        searchOptionView.snp.makeConstraints { make in
+//            make.top.equalTo(searchBar.snp.bottom).offset(20)
+//            make.bottom.equalToSuperview().offset(-30)
+//            make.right.equalToSuperview().offset(-10)
+//            make.left.equalToSuperview().offset(10)
+//        }
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
@@ -414,38 +416,12 @@ final class HomeViewController: UIViewController {
             make.right.equalToSuperview().offset(-10)
             make.left.equalToSuperview().offset(10)
         }
-
-//
-//        searchOptionView.addSubview(swiftButton)
-//        swiftButton.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
-//            make.centerY.equalToSuperview()
-//            make.width.equalTo(100)
-//            make.height.equalTo(100)
-//        }
-//
-//        searchOptionView.addSubview(javaButton)
-//        javaButton.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(30)
-//            make.left.equalToSuperview().offset(10)
-//            make.width.equalTo(130)
-//            make.height.equalTo(80)
-//        }
-//
-//        searchOptionView.addSubview(closeButton)
-//        closeButton.snp.makeConstraints { make in
-//            make.height.equalTo(50)
-//            make.right.equalToSuperview().offset(-30)
-//            make.left.equalToSuperview().offset(30)
-//            make.bottom.equalToSuperview().offset(-40)
-//        }
     }
     
    
     
     @objc func javaBtnTapped() {
-        print("@")
-        searchBar.text = javaButton.titleLabel?.text
+        selectedLanguage = (javaButton.titleLabel?.text)!
 
         javaButton.backgroundColor = UIColor.systemGray2
         javaButton.isEnabled = false
@@ -489,7 +465,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func javaScriptBtnTapped() {
-        searchBar.text = javaScriptButton.titleLabel?.text
+        selectedLanguage = (javaScriptButton.titleLabel?.text)!
         
         javaScriptButton.backgroundColor = UIColor.systemGray2
         javaScriptButton.isEnabled = false
@@ -532,8 +508,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func typeScriptBtnTapped() {
-        print("@")
-        searchBar.text = typeScriptButton.titleLabel?.text
+        selectedLanguage = (typeScriptButton.titleLabel?.text)!
         
         typeScriptButton.backgroundColor = UIColor.systemGray2
         typeScriptButton.isEnabled = false
@@ -576,8 +551,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func pythonBtnTapped() {
-        print("@")
-        searchBar.text = pythonButton.titleLabel?.text
+        selectedLanguage = (pythonButton.titleLabel?.text)!
         
         pythonButton.backgroundColor = UIColor.systemGray2
         pythonButton.isEnabled = false
@@ -621,8 +595,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func rubyBtnTapped() {
-        print("@")
-        searchBar.text = rubyButton.titleLabel?.text
+        selectedLanguage = (rubyButton.titleLabel?.text)!
         
         rubyButton.backgroundColor = UIColor.systemGray2
         rubyButton.isEnabled = false
@@ -665,8 +638,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func phpBtnTapped() {
-        print("@")
-        searchBar.text = phpButton.titleLabel?.text
+        selectedLanguage = (phpButton.titleLabel?.text)!
         
         phpButton.backgroundColor = UIColor.systemGray2
         phpButton.isEnabled = false
@@ -709,8 +681,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func swiftBtnTapped() {
-        print("@")
-        searchBar.text = swiftButton.titleLabel?.text
+        selectedLanguage = (swiftButton.titleLabel?.text)!
         
         swiftButton.backgroundColor = UIColor.systemGray2
         swiftButton.isEnabled = false
@@ -753,8 +724,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func kotlinBtnTapped() {
-        print("@")
-        searchBar.text = kotlinButton.titleLabel?.text
+        selectedLanguage = (kotlinButton.titleLabel?.text)!
         
         kotlinButton.backgroundColor = UIColor.systemGray2
         kotlinButton.isEnabled = false
@@ -797,8 +767,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func dartBtnTapped() {
-        print("@")
-        searchBar.text = dartButton.titleLabel?.text
+        selectedLanguage = (dartButton.titleLabel?.text)!
         
         dartButton.backgroundColor = UIColor.systemGray2
         dartButton.isEnabled = false
@@ -841,8 +810,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func cBtnTapped() {
-        print("@")
-        searchBar.text = cButton.titleLabel?.text
+        selectedLanguage = (cButton.titleLabel?.text)!
         
         cButton.backgroundColor = UIColor.systemGray2
         cButton.isEnabled = false
@@ -885,8 +853,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func csharpBtnTapped() {
-        print("@")
-        searchBar.text = csharpButton.titleLabel?.text
+        selectedLanguage = (csharpButton.titleLabel?.text)!
         
         csharpButton.backgroundColor = UIColor.systemGray2
         csharpButton.isEnabled = false
@@ -929,8 +896,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func cplusBtnTapped() {
-        print("@")
-        searchBar.text = cplusButton.titleLabel?.text
+        selectedLanguage = (cplusButton.titleLabel?.text)!
         
         cplusButton.backgroundColor = UIColor.systemGray2
         cplusButton.isEnabled = false
@@ -973,8 +939,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func goBtnTapped() {
-        print("@")
-        searchBar.text = goButton.titleLabel?.text
+        selectedLanguage = (goButton.titleLabel?.text)!
         
         goButton.backgroundColor = UIColor.systemGray2
         goButton.isEnabled = false
@@ -1017,8 +982,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func rustBtnTapped() {
-        print("@")
-        searchBar.text = rustButton.titleLabel?.text
+        selectedLanguage = (rustButton.titleLabel?.text)!
         
         rustButton.backgroundColor = UIColor.systemGray2
         rustButton.isEnabled = false
@@ -1061,8 +1025,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func scalaBtnTapped() {
-        print("@")
-        searchBar.text = scalaButton.titleLabel?.text
+        selectedLanguage = (scalaButton.titleLabel?.text)!
         
         scalaButton.backgroundColor = UIColor.systemGray2
         scalaButton.isEnabled = false
@@ -1105,8 +1068,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func rBtnTapped() {
-        print("@")
-        searchBar.text = rButton.titleLabel?.text
+        selectedLanguage = (rButton.titleLabel?.text)!
         
         rButton.backgroundColor = UIColor.systemGray2
         rButton.isEnabled = false
@@ -1149,8 +1111,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func htmlBtnTapped() {
-        print("@")
-        searchBar.text = htmlButton.titleLabel?.text
+        selectedLanguage = (htmlButton.titleLabel?.text)!
         
         htmlButton.backgroundColor = UIColor.systemGray2
         htmlButton.isEnabled = false
@@ -1193,8 +1154,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func cssBtnTapped() {
-        print("@")
-        searchBar.text = cssButton.titleLabel?.text
+        selectedLanguage = (cssButton.titleLabel?.text)!
         
         cssButton.backgroundColor = UIColor.systemGray2
         cssButton.isEnabled = false
@@ -1261,6 +1221,7 @@ final class HomeViewController: UIViewController {
         }) { (completed) in
             self.searchOptionView.removeFromSuperview()
         }
+        print("選ばれた言語は", selectedLanguage)
     }
 
     // MARK: - Helpers
@@ -1311,7 +1272,6 @@ final class HomeViewController: UIViewController {
         javaButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(30)
             make.left.equalToSuperview().offset(10)
-//            make.width.equalTo(width / 3.5)
             make.width.equalTo(width / 3.5)
             make.height.equalTo(width / 8)
         }
