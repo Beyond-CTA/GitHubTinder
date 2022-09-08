@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  BeyondCTAProject
 //
-//  Created by Taisei Sakamoto on 1522/04/27.
+//  Created by Taisei Sakamoto on 1022/04/27.
 //
 
 import UIKit
@@ -35,6 +35,13 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
+    private var searchOptionViewHeight = 0
+    private var searchOptionViewWidth = 0
+    
+    // 画面の大きさ
+    private let width = UIScreen.main.bounds.size.width
+    private let height = UIScreen.main.bounds.size.height
+    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
@@ -55,7 +62,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.tintColor = Asset.optionButton.color
-        button.addTarget(self, action: #selector(openSearchOption), for: .touchUpInside)
+        button.addTarget(HomeViewController.self, action: #selector(openSearchOption), for: .touchUpInside)
         return button
     }()
     
@@ -65,8 +72,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("Java", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(javaBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(javaBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -75,8 +82,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("JavaScript", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(javaScriptBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(javaScriptBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -85,8 +92,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("TypeScript", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(typeScriptBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(typeScriptBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -95,8 +102,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("Python", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(pythonBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(pythonBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -105,8 +112,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("Ruby", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(rubyBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(rubyBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -115,8 +122,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("PHP", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(phpBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(phpBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -125,8 +132,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("Swift", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(swiftBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(swiftBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -135,8 +142,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("Kotlin", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(kotlinBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(kotlinBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -145,8 +152,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("Dart", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(dartBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(dartBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -155,8 +162,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("C", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(cBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(cBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -165,8 +172,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("C#", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(csharpBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(csharpBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -175,8 +182,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("Go", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(goBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(goBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -185,8 +192,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("Rust", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(rustBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(rustBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -195,8 +202,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("Scala", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(scalaBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(scalaBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -207,8 +214,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("C++", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(cplusBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(cplusBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -217,8 +224,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("R", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(rBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(rBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -227,8 +234,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("HTML", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(htmlBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(htmlBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -237,8 +244,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("CSS", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(cssBtnTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(cssBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -252,8 +259,8 @@ final class HomeViewController: UIViewController {
         //スターはすでに選択されているのでグレー、選択できない
         button.backgroundColor = UIColor.systemGray2
         button.isEnabled = false
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(starButtonTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(starButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -264,8 +271,8 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(forkButtonTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(forkButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -274,8 +281,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("閉じる", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        button.addTarget(HomeViewController.self, action: #selector(closeButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -314,7 +321,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureSearchOptionViewUI()
-        
+        print(height, width)
 //MARK: searchOptionViewの動きをすぐ見たいときは下記のコメントアウトを外す
         self.view.addSubview(searchOptionView)
         searchOptionView.snp.makeConstraints { make in
@@ -358,7 +365,7 @@ final class HomeViewController: UIViewController {
                        onNext: { me, _ in
                 me.searchBar.resignFirstResponder()
                 me.viewModel.input.searchButtonClicked.onNext(())
-                me.collectionView.setContentOffset(CGPoint(x: -15, y: 0), animated: false)
+                me.collectionView.setContentOffset(CGPoint(x: -10, y: 0), animated: false)
             }).disposed(by: disposeBag)
         
         searchBar.rx.text.orEmpty
@@ -402,10 +409,10 @@ final class HomeViewController: UIViewController {
         self.searchOptionView.alpha = 1
         self.view.addSubview(searchOptionView)
         searchOptionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(30)
-            make.bottom.equalToSuperview()
-            make.right.equalToSuperview()
-            make.left.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom).offset(20)
+            make.bottom.equalToSuperview().offset(-30)
+            make.right.equalToSuperview().offset(-10)
+            make.left.equalToSuperview().offset(10)
         }
 
 //
@@ -420,7 +427,7 @@ final class HomeViewController: UIViewController {
 //        searchOptionView.addSubview(javaButton)
 //        javaButton.snp.makeConstraints { make in
 //            make.top.equalToSuperview().offset(30)
-//            make.left.equalToSuperview().offset(15)
+//            make.left.equalToSuperview().offset(10)
 //            make.width.equalTo(130)
 //            make.height.equalTo(80)
 //        }
@@ -1277,7 +1284,7 @@ final class HomeViewController: UIViewController {
         
         view.addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(15)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
             make.left.equalTo(view).offset(24)
             make.right.equalTo(view).offset(-50)
             make.height.equalTo(32)
@@ -1285,7 +1292,7 @@ final class HomeViewController: UIViewController {
         
         view.addSubview(optionButton)
         optionButton.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-15)
+            make.right.equalToSuperview().offset(-10)
             make.centerY.equalTo(searchBar)
         }
         
@@ -1303,178 +1310,179 @@ final class HomeViewController: UIViewController {
         searchOptionView.addSubview(javaButton)
         javaButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(30)
-            make.left.equalToSuperview().offset(15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.left.equalToSuperview().offset(10)
+//            make.width.equalTo(width / 3.5)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(javaScriptButton)
         javaScriptButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(30)
             make.centerX.equalToSuperview()
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(typeScriptButton)
         typeScriptButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(30)
-            make.right.equalToSuperview().offset(-15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.right.equalToSuperview().offset(-10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         
         searchOptionView.addSubview(pythonButton)
         pythonButton.snp.makeConstraints { make in
-            make.top.equalTo(javaButton.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.top.equalTo(javaButton.snp.bottom).offset(10)
+            make.left.equalToSuperview().offset(10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(rubyButton)
         rubyButton.snp.makeConstraints { make in
-            make.top.equalTo(javaScriptButton.snp.bottom).offset(15)
+            make.top.equalTo(javaScriptButton.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(phpButton)
         phpButton.snp.makeConstraints { make in
-            make.top.equalTo(typeScriptButton.snp.bottom).offset(15)
-            make.right.equalToSuperview().offset(-15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.top.equalTo(typeScriptButton.snp.bottom).offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         
         searchOptionView.addSubview(swiftButton)
         swiftButton.snp.makeConstraints { make in
-            make.top.equalTo(pythonButton.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.top.equalTo(pythonButton.snp.bottom).offset(10)
+            make.left.equalToSuperview().offset(10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(kotlinButton)
         kotlinButton.snp.makeConstraints { make in
-            make.top.equalTo(rubyButton.snp.bottom).offset(15)
+            make.top.equalTo(rubyButton.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(dartButton)
         dartButton.snp.makeConstraints { make in
-            make.top.equalTo(phpButton.snp.bottom).offset(15)
-            make.right.equalToSuperview().offset(-15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.top.equalTo(phpButton.snp.bottom).offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         
         
         searchOptionView.addSubview(cButton)
         cButton.snp.makeConstraints { make in
-            make.top.equalTo(swiftButton.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.top.equalTo(swiftButton.snp.bottom).offset(10)
+            make.left.equalToSuperview().offset(10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(csharpButton)
         csharpButton.snp.makeConstraints { make in
-            make.top.equalTo(kotlinButton.snp.bottom).offset(15)
+            make.top.equalTo(kotlinButton.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(cplusButton)
         cplusButton.snp.makeConstraints { make in
-            make.top.equalTo(dartButton.snp.bottom).offset(15)
-            make.right.equalToSuperview().offset(-15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.top.equalTo(dartButton.snp.bottom).offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         
         
         searchOptionView.addSubview(goButton)
         goButton.snp.makeConstraints { make in
-            make.top.equalTo(cButton.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.top.equalTo(cButton.snp.bottom).offset(10)
+            make.left.equalToSuperview().offset(10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(rustButton)
         rustButton.snp.makeConstraints { make in
-            make.top.equalTo(csharpButton.snp.bottom).offset(15)
+            make.top.equalTo(csharpButton.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(scalaButton)
         scalaButton.snp.makeConstraints { make in
-            make.top.equalTo(cplusButton.snp.bottom).offset(15)
-            make.right.equalToSuperview().offset(-15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.top.equalTo(cplusButton.snp.bottom).offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         
         searchOptionView.addSubview(rButton)
         rButton.snp.makeConstraints { make in
-            make.top.equalTo(goButton.snp.bottom).offset(15)
-            make.left.equalToSuperview().offset(15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.top.equalTo(goButton.snp.bottom).offset(10)
+            make.left.equalToSuperview().offset(10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(htmlButton)
         htmlButton.snp.makeConstraints { make in
-            make.top.equalTo(rustButton.snp.bottom).offset(15)
+            make.top.equalTo(rustButton.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(cssButton)
         cssButton.snp.makeConstraints { make in
-            make.top.equalTo(scalaButton.snp.bottom).offset(15)
-            make.right.equalToSuperview().offset(-15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.top.equalTo(scalaButton.snp.bottom).offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         //MARK: CloseButton
         searchOptionView.addSubview(closeButton)
         closeButton.snp.makeConstraints { make in
-            make.height.equalTo(50)
-            make.right.equalToSuperview().offset(-15)
-            make.left.equalToSuperview().offset(15)
-            make.bottom.equalToSuperview().offset(-15)
+            make.height.equalTo(width / 8)
+            make.right.equalToSuperview().offset(-10)
+            make.left.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-20)
         }
         
         //MARK: FillerButton
         searchOptionView.addSubview(starButton)
         starButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(15)
-            make.bottom.equalTo(closeButton.snp.top).offset(-15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.left.equalToSuperview().offset(10)
+            make.bottom.equalTo(closeButton.snp.top).offset(-10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
         
         searchOptionView.addSubview(forkButton)
         forkButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(closeButton.snp.top).offset(-15)
-            make.width.equalTo(110)
-            make.height.equalTo(50)
+            make.bottom.equalTo(closeButton.snp.top).offset(-10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
         }
     }
     
