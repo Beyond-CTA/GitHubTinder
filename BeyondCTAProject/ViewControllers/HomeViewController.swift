@@ -246,10 +246,12 @@ final class HomeViewController: UIViewController {
     private let starButton: UIButton = {
         let button = UIButton()
         button.setImage(Asset.star.image, for: .normal)
-        button.setTitle("@@@", for: .normal)
-        button.tintColor = .red
-        button.setTitleColor(.red, for: .normal)
-        button.backgroundColor = .lightGray
+        button.setTitle("star", for: .normal)
+        button.tintColor = .white
+        button.setTitleColor(.white, for: .normal)
+        //スターはすでに選択されているのでグレー、選択できない
+        button.backgroundColor = UIColor.systemGray2
+        button.isEnabled = false
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(starButtonTapped), for: .touchUpInside)
         return button
@@ -258,10 +260,10 @@ final class HomeViewController: UIViewController {
     private let forkButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "tuningfork"), for: .normal)
-        button.setTitle("@@@", for: .normal)
-        button.tintColor = .red
-        button.setTitleColor(.red, for: .normal)
-        button.backgroundColor = .lightGray
+        button.setTitle("fork", for: .normal)
+        button.tintColor = .white
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(forkButtonTapped), for: .touchUpInside)
         return button
@@ -270,7 +272,7 @@ final class HomeViewController: UIViewController {
     private let closeButton: UIButton = {
         let button = UIButton()
         button.setTitle("閉じる", for: .normal)
-        button.tintColor = .red
+        button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
@@ -1227,11 +1229,19 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func starButtonTapped() {
-        print("☆")
+        starButton.backgroundColor = UIColor.systemGray2
+        starButton.isEnabled = false
+        
+        forkButton.isEnabled = true
+        forkButton.backgroundColor = Asset.basePink.color
     }
     
     @objc func forkButtonTapped() {
-        print("フォーク")
+        forkButton.backgroundColor = UIColor.systemGray2
+        forkButton.isEnabled = false
+        
+        starButton.isEnabled = true
+        starButton.backgroundColor = Asset.basePink.color
     }
     
     
