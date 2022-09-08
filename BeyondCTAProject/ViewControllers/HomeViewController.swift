@@ -14,7 +14,6 @@ import SwiftMessages
 final class HomeViewController: UIViewController {
     
     // MARK: - Properties
-    var languages = ["Java", "JavaScript", "TypeScript"]
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Asset.logoImage.image
@@ -60,9 +59,9 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
+    //MARK: 言語ボタン
     private let javaButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("Java", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -73,7 +72,6 @@ final class HomeViewController: UIViewController {
     
     private let javaScriptButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("JavaScript", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -84,7 +82,6 @@ final class HomeViewController: UIViewController {
     
     private let typeScriptButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("TypeScript", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -95,7 +92,6 @@ final class HomeViewController: UIViewController {
     
     private let pythonButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("Python", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -106,7 +102,6 @@ final class HomeViewController: UIViewController {
     
     private let rubyButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("Ruby", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -117,7 +112,6 @@ final class HomeViewController: UIViewController {
     
     private let phpButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("PHP", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -128,7 +122,6 @@ final class HomeViewController: UIViewController {
     
     private let swiftButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("Swift", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -139,7 +132,6 @@ final class HomeViewController: UIViewController {
     
     private let kotlinButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("Kotlin", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -150,7 +142,6 @@ final class HomeViewController: UIViewController {
     
     private let flutterButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("Flutter", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -161,7 +152,6 @@ final class HomeViewController: UIViewController {
     
     private let cButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("C", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -172,7 +162,6 @@ final class HomeViewController: UIViewController {
     
     private let csharpButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("C#", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -183,7 +172,6 @@ final class HomeViewController: UIViewController {
     
     private let goButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("Go", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -194,7 +182,6 @@ final class HomeViewController: UIViewController {
     
     private let rustButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("Rust", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -205,7 +192,6 @@ final class HomeViewController: UIViewController {
     
     private let scalaButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("Scala", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -218,7 +204,6 @@ final class HomeViewController: UIViewController {
     
     private let cplusButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("C++", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -229,7 +214,6 @@ final class HomeViewController: UIViewController {
     
     private let rButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("R", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -240,7 +224,6 @@ final class HomeViewController: UIViewController {
     
     private let htmlButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("HTML", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -251,7 +234,6 @@ final class HomeViewController: UIViewController {
     
     private let cssButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("CSS", for: .normal)
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
@@ -259,8 +241,6 @@ final class HomeViewController: UIViewController {
         button.addTarget(self, action: #selector(cssBtnTapped), for: .touchUpInside)
         return button
     }()
-    
-    
     
     
     private let starButton: UIButton = {
@@ -287,16 +267,8 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    
-    
-    
-    
-    
-    
-    
     private let closeButton: UIButton = {
         let button = UIButton()
-//        button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.setTitle("閉じる", for: .normal)
         button.tintColor = .red
         button.backgroundColor = Asset.basePink.color
