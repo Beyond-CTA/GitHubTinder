@@ -278,6 +278,16 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
+    private let resetButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("クリア", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = Asset.basePink.color
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(resetBtnTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private let closeButton: UIButton = {
         let button = UIButton()
         button.setTitle("閉じる", for: .normal)
@@ -1212,6 +1222,48 @@ final class HomeViewController: UIViewController {
         starButton.backgroundColor = Asset.basePink.color
     }
     
+    @objc func resetBtnTapped() {
+        selectedLanguage = ""
+        
+        javaButton.isEnabled = true
+        javaScriptButton.isEnabled = true
+        typeScriptButton.isEnabled = true
+        pythonButton.isEnabled = true
+        rubyButton.isEnabled = true
+        phpButton.isEnabled = true
+        swiftButton.isEnabled = true
+        kotlinButton.isEnabled = true
+        dartButton.isEnabled = true
+        cButton.isEnabled = true
+        csharpButton.isEnabled = true
+        cplusButton.isEnabled = true
+        goButton.isEnabled = true
+        rustButton.isEnabled = true
+        scalaButton.isEnabled = true
+        rButton.isEnabled = true
+        htmlButton.isEnabled = true
+        cssButton.isEnabled = true
+        
+        javaButton.backgroundColor = Asset.basePink.color
+        javaScriptButton.backgroundColor = Asset.basePink.color
+        typeScriptButton.backgroundColor = Asset.basePink.color
+        pythonButton.backgroundColor = Asset.basePink.color
+        rubyButton.backgroundColor = Asset.basePink.color
+        phpButton.backgroundColor = Asset.basePink.color
+        swiftButton.backgroundColor = Asset.basePink.color
+        kotlinButton.backgroundColor = Asset.basePink.color
+        dartButton.backgroundColor = Asset.basePink.color
+        cButton.backgroundColor = Asset.basePink.color
+        csharpButton.backgroundColor = Asset.basePink.color
+        cplusButton.backgroundColor = Asset.basePink.color
+        goButton.backgroundColor = Asset.basePink.color
+        rustButton.backgroundColor = Asset.basePink.color
+        scalaButton.backgroundColor = Asset.basePink.color
+        rButton.backgroundColor = Asset.basePink.color
+        htmlButton.backgroundColor = Asset.basePink.color
+        cssButton.backgroundColor = Asset.basePink.color
+    }
+    
     
     
     
@@ -1440,6 +1492,14 @@ final class HomeViewController: UIViewController {
         searchOptionView.addSubview(forkButton)
         forkButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
+            make.bottom.equalTo(closeButton.snp.top).offset(-10)
+            make.width.equalTo(width / 3.5)
+            make.height.equalTo(width / 8)
+        }
+        
+        searchOptionView.addSubview(resetButton)
+        resetButton.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-10)
             make.bottom.equalTo(closeButton.snp.top).offset(-10)
             make.width.equalTo(width / 3.5)
             make.height.equalTo(width / 8)
