@@ -376,6 +376,7 @@ final class HomeViewController: UIViewController {
             .subscribe(with: self,
                        onNext: { me, _ in
                 me.searchBar.resignFirstResponder()
+                me.searchOptionView.removeFromSuperview()
                 me.viewModel.input.searchButtonClicked.onNext(())
                 me.collectionView.setContentOffset(CGPoint(x: -10, y: 0), animated: false)
             }).disposed(by: disposeBag)
