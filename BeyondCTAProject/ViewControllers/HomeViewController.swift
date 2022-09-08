@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  BeyondCTAProject
 //
-//  Created by Taisei Sakamoto on 2022/04/27.
+//  Created by Taisei Sakamoto on 1522/04/27.
 //
 
 import UIKit
@@ -314,13 +314,13 @@ final class HomeViewController: UIViewController {
         configureSearchOptionViewUI()
         
 //MARK: searchOptionViewの動きをすぐ見たいときは下記のコメントアウトを外す
-//        self.view.addSubview(searchOptionView)
-//        searchOptionView.snp.makeConstraints { make in
-//            make.top.equalTo(searchBar.snp.bottom).offset(50)
-//            make.bottom.equalToSuperview()
-//            make.right.equalToSuperview()
-//            make.left.equalToSuperview()
-//        }
+        self.view.addSubview(searchOptionView)
+        searchOptionView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(50)
+            make.bottom.equalToSuperview()
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
+        }
         
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
@@ -356,7 +356,7 @@ final class HomeViewController: UIViewController {
                        onNext: { me, _ in
                 me.searchBar.resignFirstResponder()
                 me.viewModel.input.searchButtonClicked.onNext(())
-                me.collectionView.setContentOffset(CGPoint(x: -20, y: 0), animated: false)
+                me.collectionView.setContentOffset(CGPoint(x: -15, y: 0), animated: false)
             }).disposed(by: disposeBag)
         
         searchBar.rx.text.orEmpty
@@ -399,7 +399,7 @@ final class HomeViewController: UIViewController {
     @objc func openSearchOption() {
         self.view.addSubview(searchOptionView)
         searchOptionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(50)
+            make.top.equalTo(searchBar.snp.bottom).offset(30)
             make.bottom.equalToSuperview()
             make.right.equalToSuperview()
             make.left.equalToSuperview()
@@ -417,14 +417,14 @@ final class HomeViewController: UIViewController {
 //        searchOptionView.addSubview(javaButton)
 //        javaButton.snp.makeConstraints { make in
 //            make.top.equalToSuperview().offset(30)
-//            make.left.equalToSuperview().offset(20)
+//            make.left.equalToSuperview().offset(15)
 //            make.width.equalTo(130)
 //            make.height.equalTo(80)
 //        }
 //
 //        searchOptionView.addSubview(closeButton)
 //        closeButton.snp.makeConstraints { make in
-//            make.height.equalTo(60)
+//            make.height.equalTo(50)
 //            make.right.equalToSuperview().offset(-30)
 //            make.left.equalToSuperview().offset(30)
 //            make.bottom.equalToSuperview().offset(-40)
@@ -1262,7 +1262,7 @@ final class HomeViewController: UIViewController {
         
         view.addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(15)
             make.left.equalTo(view).offset(24)
             make.right.equalTo(view).offset(-50)
             make.height.equalTo(32)
@@ -1270,7 +1270,7 @@ final class HomeViewController: UIViewController {
         
         view.addSubview(optionButton)
         optionButton.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-20)
+            make.right.equalToSuperview().offset(-15)
             make.centerY.equalTo(searchBar)
         }
         
@@ -1288,9 +1288,9 @@ final class HomeViewController: UIViewController {
         searchOptionView.addSubview(javaButton)
         javaButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(30)
-            make.left.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(javaScriptButton)
@@ -1298,168 +1298,168 @@ final class HomeViewController: UIViewController {
             make.top.equalToSuperview().offset(30)
             make.centerX.equalToSuperview()
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(typeScriptButton)
         typeScriptButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(30)
-            make.right.equalToSuperview().offset(-20)
+            make.right.equalToSuperview().offset(-15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         
         searchOptionView.addSubview(pythonButton)
         pythonButton.snp.makeConstraints { make in
-            make.top.equalTo(javaButton.snp.bottom).offset(20)
-            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(javaButton.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(rubyButton)
         rubyButton.snp.makeConstraints { make in
-            make.top.equalTo(javaScriptButton.snp.bottom).offset(20)
+            make.top.equalTo(javaScriptButton.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(phpButton)
         phpButton.snp.makeConstraints { make in
-            make.top.equalTo(typeScriptButton.snp.bottom).offset(20)
-            make.right.equalToSuperview().offset(-20)
+            make.top.equalTo(typeScriptButton.snp.bottom).offset(15)
+            make.right.equalToSuperview().offset(-15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         
         searchOptionView.addSubview(swiftButton)
         swiftButton.snp.makeConstraints { make in
-            make.top.equalTo(pythonButton.snp.bottom).offset(20)
-            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(pythonButton.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(kotlinButton)
         kotlinButton.snp.makeConstraints { make in
-            make.top.equalTo(rubyButton.snp.bottom).offset(20)
+            make.top.equalTo(rubyButton.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(flutterButton)
         flutterButton.snp.makeConstraints { make in
-            make.top.equalTo(phpButton.snp.bottom).offset(20)
-            make.right.equalToSuperview().offset(-20)
+            make.top.equalTo(phpButton.snp.bottom).offset(15)
+            make.right.equalToSuperview().offset(-15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         
         
         searchOptionView.addSubview(cButton)
         cButton.snp.makeConstraints { make in
-            make.top.equalTo(swiftButton.snp.bottom).offset(20)
-            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(swiftButton.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(csharpButton)
         csharpButton.snp.makeConstraints { make in
-            make.top.equalTo(kotlinButton.snp.bottom).offset(20)
+            make.top.equalTo(kotlinButton.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(cplusButton)
         cplusButton.snp.makeConstraints { make in
-            make.top.equalTo(flutterButton.snp.bottom).offset(20)
-            make.right.equalToSuperview().offset(-20)
+            make.top.equalTo(flutterButton.snp.bottom).offset(15)
+            make.right.equalToSuperview().offset(-15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         
         
         searchOptionView.addSubview(goButton)
         goButton.snp.makeConstraints { make in
-            make.top.equalTo(cButton.snp.bottom).offset(20)
-            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(cButton.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(rustButton)
         rustButton.snp.makeConstraints { make in
-            make.top.equalTo(csharpButton.snp.bottom).offset(20)
+            make.top.equalTo(csharpButton.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(scalaButton)
         scalaButton.snp.makeConstraints { make in
-            make.top.equalTo(cplusButton.snp.bottom).offset(20)
-            make.right.equalToSuperview().offset(-20)
+            make.top.equalTo(cplusButton.snp.bottom).offset(15)
+            make.right.equalToSuperview().offset(-15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         
         searchOptionView.addSubview(rButton)
         rButton.snp.makeConstraints { make in
-            make.top.equalTo(goButton.snp.bottom).offset(20)
-            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(goButton.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(htmlButton)
         htmlButton.snp.makeConstraints { make in
-            make.top.equalTo(rustButton.snp.bottom).offset(20)
+            make.top.equalTo(rustButton.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         searchOptionView.addSubview(cssButton)
         cssButton.snp.makeConstraints { make in
-            make.top.equalTo(scalaButton.snp.bottom).offset(20)
-            make.right.equalToSuperview().offset(-20)
+            make.top.equalTo(scalaButton.snp.bottom).offset(15)
+            make.right.equalToSuperview().offset(-15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
-        }
-        
-        //MARK: FilterButton
-        searchOptionView.addSubview(closeButton)
-        closeButton.snp.makeConstraints { make in
-            make.height.equalTo(60)
-            make.right.equalToSuperview().offset(-20)
-            make.left.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().offset(-40)
-        }
-        
-        searchOptionView.addSubview(starButton)
-        starButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20)
-            make.bottom.equalTo(closeButton.snp.top).offset(-40)
-            make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
         
         //MARK: CloseButton
+        searchOptionView.addSubview(closeButton)
+        closeButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.right.equalToSuperview().offset(-15)
+            make.left.equalToSuperview().offset(15)
+            make.bottom.equalToSuperview().offset(-15)
+        }
+        
+        //MARK: FillerButton
+        searchOptionView.addSubview(starButton)
+        starButton.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(15)
+            make.bottom.equalTo(closeButton.snp.top).offset(-15)
+            make.width.equalTo(110)
+            make.height.equalTo(50)
+        }
+        
         searchOptionView.addSubview(forkButton)
         forkButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(closeButton.snp.top).offset(-40)
+            make.bottom.equalTo(closeButton.snp.top).offset(-15)
             make.width.equalTo(110)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
     }
     
@@ -1479,7 +1479,7 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(
-            width: view.frame.width - 60,
+            width: view.frame.width - 50,
             height: collectionView.frame.height
         )
     }
