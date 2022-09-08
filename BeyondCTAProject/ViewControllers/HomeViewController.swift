@@ -62,7 +62,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.tintColor = Asset.optionButton.color
-        button.addTarget(HomeViewController.self, action: #selector(openSearchOption), for: .touchUpInside)
+        button.addTarget(self, action: #selector(openSearchOption), for: .touchUpInside)
         return button
     }()
     
@@ -73,7 +73,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(javaBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(javaBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -83,7 +83,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(javaScriptBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(javaScriptBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -93,7 +93,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(typeScriptBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(typeScriptBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -103,7 +103,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(pythonBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(pythonBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -113,7 +113,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(rubyBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(rubyBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -123,7 +123,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(phpBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(phpBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -133,7 +133,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(swiftBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(swiftBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -143,7 +143,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(kotlinBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(kotlinBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -153,7 +153,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(dartBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(dartBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -163,7 +163,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(cBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(cBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -173,7 +173,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(csharpBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(csharpBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -183,7 +183,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(goBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(goBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -193,7 +193,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(rustBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(rustBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -203,7 +203,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(scalaBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(scalaBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -215,7 +215,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(cplusBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(cplusBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -225,7 +225,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(rBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(rBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -235,7 +235,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(htmlBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(htmlBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -245,7 +245,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(cssBtnTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(cssBtnTapped), for: .touchUpInside)
         return button
     }()
     
@@ -260,7 +260,7 @@ final class HomeViewController: UIViewController {
         button.backgroundColor = UIColor.systemGray2
         button.isEnabled = false
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(starButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(starButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -272,7 +272,7 @@ final class HomeViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(forkButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(forkButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -282,7 +282,7 @@ final class HomeViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = Asset.basePink.color
         button.layer.cornerRadius = 10
-        button.addTarget(HomeViewController.self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         return button
     }()
     
