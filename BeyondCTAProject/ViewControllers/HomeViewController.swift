@@ -472,6 +472,7 @@ final class HomeViewController: UIViewController {
             me.searchBar.rx.text.orEmpty
                 .bind(to: me.viewModel.input.searchText)
                 .disposed(by: me.disposeBag)
+            me.viewModel.input.optionLanguage.onNext(me.selectedLanguage)
             me.viewModel.input.searchButtonClicked.onNext(())
             me.collectionView.setContentOffset(CGPoint(x: -10, y: 0), animated: false)
         }
