@@ -150,9 +150,9 @@ final class HomeViewController: UIViewController {
                 me.collectionView.setContentOffset(CGPoint(x: -20, y: 0), animated: false)
             }).disposed(by: disposeBag)
         
-        searchBar.rx.text.orEmpty
-            .bind(to: viewModel.input.searchText)
-            .disposed(by: disposeBag)
+//        searchBar.rx.text.orEmpty
+//            .bind(to: viewModel.input.searchText)
+//            .disposed(by: disposeBag)
         
         // MARK: Outputs
         
@@ -188,43 +188,20 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func tap() {
-        print("@@@")
-        self.view.addSubview(customView)
-        
-        customView.snp.makeConstraints { make in
-//            make.top.equalToSuperview()
-            make.top.equalToSuperview().offset(200)
-            make.bottom.equalToSuperview()
-            make.right.equalToSuperview()
-//            make.left.equalToSuperview().offset(100)
-            make.left.equalToSuperview()
-        }
-        
-        customView.addSubview(sampleButton)
-        sampleButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.width.equalTo(100)
-            make.height.equalTo(100)
-        }
-        
-        customView.addSubview(sampleButton2)
-        sampleButton2.snp.makeConstraints { make in
-            
-            make.centerY.equalToSuperview()
-            make.width.equalTo(100)
-            make.height.equalTo(100)
-            make.bottom.equalToSuperview().offset(-30)
-        }
     }
     
     @objc func tap2() {
         print("@")
-        searchBar.text = sampleButton.titleLabel?.text
+        searchBar.text = "Java"
     }
     
     @objc func tap3() {
         customView.removeFromSuperview()
+        searchBar.rx.text.orEmpty
+            .bind(to: viewModel.input.searchText)
+            .disposed(by: disposeBag)
+        viewModel.input.searchButtonClicked.onNext(())
+        collectionView.setContentOffset(CGPoint(x: -20, y: 0), animated: false)
     }
     
     // MARK: - Helpers
@@ -267,6 +244,34 @@ final class HomeViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
+        print("@@@")
+        view.addSubview(customView)
+        
+        customView.snp.makeConstraints { make in
+//            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(200)
+            make.bottom.equalToSuperview()
+            make.right.equalToSuperview()
+//            make.left.equalToSuperview().offset(100)
+            make.left.equalToSuperview()
+        }
+        
+        customView.addSubview(sampleButton)
+        sampleButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+        
+        customView.addSubview(sampleButton2)
+        sampleButton2.snp.makeConstraints { make in
+            
+            make.centerY.equalToSuperview()
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+            make.bottom.equalToSuperview().offset(-30)
+        }
     }
     
     private func showNoResultsAlert(with searchText: String) {
