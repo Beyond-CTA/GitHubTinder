@@ -36,17 +36,20 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                 state.pagingOffset.accept(1)
                 return extra.searchRepository.populateRepositories(
                     query: text,
-                    language: "Swift", // FixMe
+//                    language: "", // FixMe
                     pagingOffset: state.pagingOffset.value
                 )
                 .timeout(.seconds(5), scheduler: MainScheduler.instance)
                 .map(Optional.some)
                 .catch { error in
                     state.hudShow.accept(.error)
+                    
                     return .just(nil)
                 }
+                print(extra.searchRepository.populateRepositories, "@@@@@@@@")
             }.subscribe(onNext: { items in
                 guard let items = items, !items.isEmpty else {
+                    
                     state.hudHide.accept(())
                     return state.noResults.accept(())
                 }
@@ -61,7 +64,7 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                 state.hudShow.accept(.progress)
                 return extra.searchRepository.populateRepositories(
                     query: text,
-                    language: "Swift", // FixMe
+//                    language: "", // FixMe
                     pagingOffset: state.pagingOffset.value
                 )
                 .timeout(.seconds(5), scheduler: MainScheduler.instance)
@@ -70,7 +73,9 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                     return .just(nil)
                 }
             }.subscribe(onNext: { items in
-                guard let items = items else { return }
+                guard let items = items else { return
+                    state.hudHide.accept(())
+                }
                 state.repositoryInfoModels.accept(state.repositoryInfoModels.value + items)
                 state.pagingOffset.accept(state.pagingOffset.value + 1)
                 state.hudHide.accept(())

@@ -62,6 +62,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: L10n.verticalSlider), for: .normal)
         button.tintColor = Asset.optionButton.color
+        button.alpha = 0
         button.addTarget(self, action: #selector(openSearchOption), for: .touchUpInside)
         return button
     }()

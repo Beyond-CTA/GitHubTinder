@@ -14,12 +14,12 @@ struct SearchRepositoriesTargetType: BaseTargetType {
     typealias ErrorResponse = GitHubAPI.ErrorModel
 
     let query: String
-    let language: String
+//    let language: String
     let pagingOffset: Int
     
-    init(query: String, language: String?, pagingOffset: Int?) {
+    init(query: String,  pagingOffset: Int?) {
         self.query = query
-        self.language = language ?? ""
+//        self.language = language ?? ""
         self.pagingOffset = pagingOffset ?? 1
     }
 
@@ -48,7 +48,8 @@ struct SearchRepositoriesTargetType: BaseTargetType {
 
     var queryParameters: [String : String] {
         return [
-            "q": "\(query)+language:\(language)",
+//            "q": "\(query)+language:\(language)",
+            "q": "\(query)",
             "sort": "stars",
             "order": "desc",
             "per_page": "10",

@@ -30,11 +30,11 @@ class SearchRepositoryTypeMock: SearchRepositoryType {
 
 
     private(set) var populateRepositoriesCallCount = 0
-    var populateRepositoriesHandler: ((String, String?, Int?) -> (Single<[RepositoryInfoModel]>))?
-    func populateRepositories(query: String, language: String?, pagingOffset: Int?) -> Single<[RepositoryInfoModel]> {
+    var populateRepositoriesHandler: ((String, Int?) -> (Single<[RepositoryInfoModel]>))?
+    func populateRepositories(query: String, pagingOffset: Int?) -> Single<[RepositoryInfoModel]> {
         populateRepositoriesCallCount += 1
         if let populateRepositoriesHandler = populateRepositoriesHandler {
-            return populateRepositoriesHandler(query, language, pagingOffset)
+            return populateRepositoriesHandler(query, pagingOffset)
         }
         fatalError("populateRepositoriesHandler returns can't have a default value thus its handler must be set")
     }

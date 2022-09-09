@@ -19,7 +19,7 @@ extension SearchRepositoriesEntity.Item {
             avatarURL: owner.avatarURL,
             stargazersCount: stargazersCount,
             watchersCount: watchersCount,
-            language: language,
+//            language: language,
             forksCount: forksCount,
             openIssuesCount: openIssuesCount,
             readmeBody: readmeBody ?? "",

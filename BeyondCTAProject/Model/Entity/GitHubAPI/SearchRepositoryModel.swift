@@ -14,7 +14,7 @@ struct RepositoryInfoModel: Equatable {
     let avatarURL: String
     let stargazersCount: Int
     let watchersCount: Int
-    let language: String
+//    let language: String
     let forksCount: Int
     let openIssuesCount: Int
     let readmeBody: String

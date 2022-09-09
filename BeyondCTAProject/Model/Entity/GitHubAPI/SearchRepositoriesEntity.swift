@@ -19,7 +19,7 @@ struct SearchRepositoriesEntity: Codable {
         let name, fullName: String
         let owner: Owner
         let stargazersCount, watchersCount: Int
-        let language: String
+//        let language: String
         let forksCount, openIssuesCount: Int
         let description: String
         let defaultBranch: String
@@ -32,7 +32,7 @@ struct SearchRepositoriesEntity: Codable {
             case description
             case stargazersCount = "stargazers_count"
             case watchersCount = "watchers_count"
-            case language
+//            case language
             case forksCount = "forks_count"
             case openIssuesCount = "open_issues_count"
             case defaultBranch = "default_branch"

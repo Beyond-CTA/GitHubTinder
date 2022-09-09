@@ -11,7 +11,7 @@ import RxSwift
 
 /// @mockable
 protocol SearchRepositoryType: AnyObject {
-    func populateRepositories(query: String, language: String?, pagingOffset: Int?) -> Single<[RepositoryInfoModel]>
+    func populateRepositories(query: String, pagingOffset: Int?) -> Single<[RepositoryInfoModel]>
 }
 
 final class SearchRepository: SearchRepositoryType {
@@ -21,8 +21,8 @@ final class SearchRepository: SearchRepositoryType {
         self.provider = provider
     }
     
-    func fetchRepositories(query: String, language: String?, pagingOffset: Int?) -> Single<[SearchRepositoriesEntity.Item]> {
-        let targetType = SearchRepositoriesTargetType(query: query, language: language, pagingOffset: pagingOffset)
+    func fetchRepositories(query: String, pagingOffset: Int?) -> Single<[SearchRepositoriesEntity.Item]> {
+        let targetType = SearchRepositoriesTargetType(query: query,  pagingOffset: pagingOffset)
         return APIClient.shared
             .send(provider: provider, targetType)
             .flatMap { result -> Single<[SearchRepositoriesEntity.Item]> in
@@ -35,8 +35,8 @@ final class SearchRepository: SearchRepositoryType {
             }
     }
     
-    func populateRepositories(query: String, language: String? = nil, pagingOffset: Int? = nil) -> Single<[RepositoryInfoModel]> {
-        return fetchRepositories(query: query, language: language, pagingOffset: pagingOffset).map { items in
+    func populateRepositories(query: String, pagingOffset: Int? = nil) -> Single<[RepositoryInfoModel]> {
+        return fetchRepositories(query: query,  pagingOffset: pagingOffset).map { items in
             items.map { $0.translate() }
         }
     }
