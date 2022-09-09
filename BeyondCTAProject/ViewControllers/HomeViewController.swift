@@ -14,6 +14,13 @@ import SwiftMessages
 final class HomeViewController: UIViewController {
     
     // MARK: - Properties
+    
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Asset.logoImage.image
@@ -68,6 +75,7 @@ final class HomeViewController: UIViewController {
     
     var selectedLanguage = ""
     private var selectedButton: UIButton?
+    private var isOptioning: Bool = false
     
     //MARK: 言語ボタン
     private let javaButton: UIButton = {
@@ -344,6 +352,9 @@ final class HomeViewController: UIViewController {
 //            make.left.equalToSuperview().offset(10)
 //        }
         
+        let backgroundTap = UITapGestureRecognizer(target: self, action: #selector(backgroundViewTap))
+        backgroundView.addGestureRecognizer(backgroundTap)
+        
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         
         collectionView.rx.willDisplayCell
@@ -362,14 +373,14 @@ final class HomeViewController: UIViewController {
                 me.present(viewController, animated: true)
             }).disposed(by: disposeBag)
         
-        optionButton.rx.tap
-            .subscribe(with: self,
-                       onNext: { me, _ in
+//        optionButton.rx.tap
+//            .subscribe(with: self,
+//                       onNext: { me, _ in
 //                let viewController = SearchViewController()
 //                viewController.modalPresentationStyle = .fullScreen
 //                me.present(viewController, animated: true)
 //                me.view.addSubview(CustomView)
-            }).disposed(by: disposeBag)
+//            }).disposed(by: disposeBag)
         
         // MARK: Inputs
         
@@ -377,14 +388,15 @@ final class HomeViewController: UIViewController {
             .subscribe(with: self,
                        onNext: { me, _ in
                 me.searchBar.resignFirstResponder()
-                me.searchOptionView.removeFromSuperview()
+//                me.searchOptionView.removeFromSuperview()
+                me.isOptioning = false
                 me.viewModel.input.searchButtonClicked.onNext(())
                 me.collectionView.setContentOffset(CGPoint(x: -10, y: 0), animated: false)
             }).disposed(by: disposeBag)
         
-//        searchBar.rx.text.orEmpty
-//            .bind(to: viewModel.input.searchText)
-//            .disposed(by: disposeBag)
+        searchBar.rx.text.orEmpty
+            .bind(to: viewModel.input.searchText)
+            .disposed(by: disposeBag)
         
         // MARK: Outputs
         
@@ -420,13 +432,16 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func openSearchOption() {
-        searchOptionView.alpha = 1
-        view.addSubview(searchOptionView)
-        searchOptionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(20)
-            make.bottom.equalToSuperview().offset(-30)
-            make.right.equalToSuperview().offset(-10)
-            make.left.equalToSuperview().offset(10)
+        if !isOptioning {
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+                self.searchOptionView.alpha = 1
+                self.isOptioning = true
+            }
+        } else {
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+                self.searchOptionView.alpha = 0
+                self.isOptioning = false
+            }
         }
     }
     
@@ -464,24 +479,40 @@ final class HomeViewController: UIViewController {
     }
 
     @objc func closeButtonTapped() {
-        UIView.animate(withDuration: 0.2, delay: 0.05, options: UIView.AnimationOptions.allowUserInteraction, animations: {
-            self.searchOptionView.alpha = 0.05
+        UIView.animate(withDuration: 0.5, delay: 0.05, options: UIView.AnimationOptions.allowUserInteraction, animations: {
+            self.searchOptionView.alpha = 0
         }) { [weak self] _ in
             guard let me = self else { return }
-            me.searchOptionView.removeFromSuperview()
+//            me.searchOptionView.removeFromSuperview()
             me.searchBar.rx.text.orEmpty
                 .bind(to: me.viewModel.input.searchText)
                 .disposed(by: me.disposeBag)
             me.viewModel.input.optionLanguage.onNext(me.selectedLanguage)
             me.viewModel.input.searchButtonClicked.onNext(())
             me.collectionView.setContentOffset(CGPoint(x: -10, y: 0), animated: false)
+            me.isOptioning = false
         }
         print("選ばれた言語は", selectedLanguage)
+    }
+    
+    @objc
+    private func backgroundViewTap() {
+        guard searchOptionView.isDescendant(of: view) else { return }
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+            self.searchOptionView.alpha = 0
+        } completion: { _ in
+            self.isOptioning = false
+        }
     }
 
     // MARK: - Helpers
     
     private func configureUI() {
+        view.addSubview(backgroundView)
+        backgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         view.addSubview(backgroundImageView)
         backgroundImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -519,6 +550,14 @@ final class HomeViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
+        searchOptionView.alpha = 0
+        view.addSubview(searchOptionView)
+        searchOptionView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(20)
+            make.bottom.equalToSuperview().offset(-50)
+            make.right.equalToSuperview().offset(-10)
+            make.left.equalToSuperview().offset(10)
+        }
     }
     
     private func configureSearchOptionViewUI() {
@@ -714,10 +753,17 @@ final class HomeViewController: UIViewController {
     private func showNoResultsAlert(with searchText: String) {
         let view = MessageView.viewFromNib(layout: .centeredView)
         view.configureDropShadow()
-        view.configureContent(
-            title: L10n.noResultsAlertTitle(searchText),
-            body: L10n.noResultsAlertBody
-        )
+        if searchText.isEmpty {
+            view.configureContent(
+                title: "キーワードを入力して下さい",
+                body: ""
+            )
+        } else {
+            view.configureContent(
+                title: L10n.noResultsAlertTitle(searchText),
+                body: L10n.noResultsAlertBody
+            )
+        }
         view.button?.isHidden = true
         view.iconLabel?.isHidden = true
         SwiftMessages.show(view: view)
