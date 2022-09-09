@@ -73,7 +73,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Java", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(javaBtnTapped), for: .touchUpInside)
         return button
@@ -83,7 +83,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("JavaScript", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(javaScriptBtnTapped), for: .touchUpInside)
         return button
@@ -93,7 +93,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("TypeScript", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(typeScriptBtnTapped), for: .touchUpInside)
         return button
@@ -103,7 +103,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Python", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(pythonBtnTapped), for: .touchUpInside)
         return button
@@ -113,7 +113,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Ruby", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(rubyBtnTapped), for: .touchUpInside)
         return button
@@ -123,7 +123,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("PHP", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(phpBtnTapped), for: .touchUpInside)
         return button
@@ -133,7 +133,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Swift", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(swiftBtnTapped), for: .touchUpInside)
         return button
@@ -143,7 +143,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Kotlin", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(kotlinBtnTapped), for: .touchUpInside)
         return button
@@ -153,7 +153,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Dart", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(dartBtnTapped), for: .touchUpInside)
         return button
@@ -163,7 +163,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("C", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(cBtnTapped), for: .touchUpInside)
         return button
@@ -173,7 +173,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("C#", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(csharpBtnTapped), for: .touchUpInside)
         return button
@@ -183,7 +183,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Go", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(goBtnTapped), for: .touchUpInside)
         return button
@@ -193,7 +193,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Rust", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(rustBtnTapped), for: .touchUpInside)
         return button
@@ -203,7 +203,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Scala", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(scalaBtnTapped), for: .touchUpInside)
         return button
@@ -215,7 +215,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("C++", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(cplusBtnTapped), for: .touchUpInside)
         return button
@@ -225,7 +225,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("R", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(rBtnTapped), for: .touchUpInside)
         return button
@@ -235,7 +235,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("HTML", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(htmlBtnTapped), for: .touchUpInside)
         return button
@@ -245,7 +245,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("CSS", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(cssBtnTapped), for: .touchUpInside)
         return button
@@ -258,8 +258,8 @@ final class HomeViewController: UIViewController {
         button.setTitle("star", for: .normal)
         button.tintColor = .white
         button.setTitleColor(.white, for: .normal)
-        //スターはすでに選択されているのでグレー、選択できない
-        button.backgroundColor = UIColor.systemGray2
+        //スターはすでに選択されているのでピンク、選択できない
+        button.backgroundColor = Asset.basePink.color
         button.isEnabled = false
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(starButtonTapped), for: .touchUpInside)
@@ -272,7 +272,7 @@ final class HomeViewController: UIViewController {
         button.setTitle("fork", for: .normal)
         button.tintColor = .white
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(forkButtonTapped), for: .touchUpInside)
         return button
@@ -282,7 +282,7 @@ final class HomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("クリア", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Asset.basePink.color
+        button.backgroundColor = UIColor.systemGray2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(resetBtnTapped), for: .touchUpInside)
         return button
@@ -434,7 +434,7 @@ final class HomeViewController: UIViewController {
     @objc func javaBtnTapped() {
         selectedLanguage = (javaButton.titleLabel?.text)!
 
-        javaButton.backgroundColor = UIColor.systemGray2
+        javaButton.backgroundColor = Asset.basePink.color
         javaButton.isEnabled = false
         
         javaScriptButton.isEnabled = true
@@ -456,29 +456,29 @@ final class HomeViewController: UIViewController {
         cssButton.isEnabled = true
         
 
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func javaScriptBtnTapped() {
         selectedLanguage = (javaScriptButton.titleLabel?.text)!
         
-        javaScriptButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = Asset.basePink.color
         javaScriptButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -499,29 +499,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func typeScriptBtnTapped() {
         selectedLanguage = (typeScriptButton.titleLabel?.text)!
         
-        typeScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = Asset.basePink.color
         typeScriptButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -542,29 +542,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
 
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func pythonBtnTapped() {
         selectedLanguage = (pythonButton.titleLabel?.text)!
         
-        pythonButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = Asset.basePink.color
         pythonButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -585,30 +585,30 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
         
     }
     
     @objc func rubyBtnTapped() {
         selectedLanguage = (rubyButton.titleLabel?.text)!
         
-        rubyButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = Asset.basePink.color
         rubyButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -629,29 +629,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func phpBtnTapped() {
         selectedLanguage = (phpButton.titleLabel?.text)!
         
-        phpButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = Asset.basePink.color
         phpButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -672,29 +672,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func swiftBtnTapped() {
         selectedLanguage = (swiftButton.titleLabel?.text)!
         
-        swiftButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = Asset.basePink.color
         swiftButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -715,29 +715,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func kotlinBtnTapped() {
         selectedLanguage = (kotlinButton.titleLabel?.text)!
         
-        kotlinButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = Asset.basePink.color
         kotlinButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -758,29 +758,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func dartBtnTapped() {
         selectedLanguage = (dartButton.titleLabel?.text)!
         
-        dartButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = Asset.basePink.color
         dartButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -801,29 +801,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func cBtnTapped() {
         selectedLanguage = (cButton.titleLabel?.text)!
         
-        cButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = Asset.basePink.color
         cButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -844,29 +844,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func csharpBtnTapped() {
         selectedLanguage = (csharpButton.titleLabel?.text)!
         
-        csharpButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = Asset.basePink.color
         csharpButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -887,29 +887,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func cplusBtnTapped() {
         selectedLanguage = (cplusButton.titleLabel?.text)!
         
-        cplusButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = Asset.basePink.color
         cplusButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -930,29 +930,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func goBtnTapped() {
         selectedLanguage = (goButton.titleLabel?.text)!
         
-        goButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = Asset.basePink.color
         goButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -973,29 +973,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func rustBtnTapped() {
         selectedLanguage = (rustButton.titleLabel?.text)!
         
-        rustButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = Asset.basePink.color
         rustButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -1016,29 +1016,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func scalaBtnTapped() {
         selectedLanguage = (scalaButton.titleLabel?.text)!
         
-        scalaButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = Asset.basePink.color
         scalaButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -1059,29 +1059,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func rBtnTapped() {
         selectedLanguage = (rButton.titleLabel?.text)!
         
-        rButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = Asset.basePink.color
         rButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -1102,29 +1102,29 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func htmlBtnTapped() {
         selectedLanguage = (htmlButton.titleLabel?.text)!
         
-        htmlButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = Asset.basePink.color
         htmlButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -1145,29 +1145,29 @@ final class HomeViewController: UIViewController {
         rButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func cssBtnTapped() {
         selectedLanguage = (cssButton.titleLabel?.text)!
         
-        cssButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = Asset.basePink.color
         cssButton.isEnabled = false
         
         javaButton.isEnabled = true
@@ -1188,39 +1188,39 @@ final class HomeViewController: UIViewController {
         rButton.isEnabled = true
         htmlButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func starButtonTapped() {
-        starButton.backgroundColor = UIColor.systemGray2
+        starButton.backgroundColor = Asset.basePink.color
         starButton.isEnabled = false
         
         forkButton.isEnabled = true
-        forkButton.backgroundColor = Asset.basePink.color
+        forkButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func forkButtonTapped() {
-        forkButton.backgroundColor = UIColor.systemGray2
+        forkButton.backgroundColor = Asset.basePink.color
         forkButton.isEnabled = false
         
         starButton.isEnabled = true
-        starButton.backgroundColor = Asset.basePink.color
+        starButton.backgroundColor = UIColor.systemGray2
     }
     
     @objc func resetBtnTapped() {
@@ -1245,24 +1245,24 @@ final class HomeViewController: UIViewController {
         htmlButton.isEnabled = true
         cssButton.isEnabled = true
         
-        javaButton.backgroundColor = Asset.basePink.color
-        javaScriptButton.backgroundColor = Asset.basePink.color
-        typeScriptButton.backgroundColor = Asset.basePink.color
-        pythonButton.backgroundColor = Asset.basePink.color
-        rubyButton.backgroundColor = Asset.basePink.color
-        phpButton.backgroundColor = Asset.basePink.color
-        swiftButton.backgroundColor = Asset.basePink.color
-        kotlinButton.backgroundColor = Asset.basePink.color
-        dartButton.backgroundColor = Asset.basePink.color
-        cButton.backgroundColor = Asset.basePink.color
-        csharpButton.backgroundColor = Asset.basePink.color
-        cplusButton.backgroundColor = Asset.basePink.color
-        goButton.backgroundColor = Asset.basePink.color
-        rustButton.backgroundColor = Asset.basePink.color
-        scalaButton.backgroundColor = Asset.basePink.color
-        rButton.backgroundColor = Asset.basePink.color
-        htmlButton.backgroundColor = Asset.basePink.color
-        cssButton.backgroundColor = Asset.basePink.color
+        javaButton.backgroundColor = UIColor.systemGray2
+        javaScriptButton.backgroundColor = UIColor.systemGray2
+        typeScriptButton.backgroundColor = UIColor.systemGray2
+        pythonButton.backgroundColor = UIColor.systemGray2
+        rubyButton.backgroundColor = UIColor.systemGray2
+        phpButton.backgroundColor = UIColor.systemGray2
+        swiftButton.backgroundColor = UIColor.systemGray2
+        kotlinButton.backgroundColor = UIColor.systemGray2
+        dartButton.backgroundColor = UIColor.systemGray2
+        cButton.backgroundColor = UIColor.systemGray2
+        csharpButton.backgroundColor = UIColor.systemGray2
+        cplusButton.backgroundColor = UIColor.systemGray2
+        goButton.backgroundColor = UIColor.systemGray2
+        rustButton.backgroundColor = UIColor.systemGray2
+        scalaButton.backgroundColor = UIColor.systemGray2
+        rButton.backgroundColor = UIColor.systemGray2
+        htmlButton.backgroundColor = UIColor.systemGray2
+        cssButton.backgroundColor = UIColor.systemGray2
     }
     
     
