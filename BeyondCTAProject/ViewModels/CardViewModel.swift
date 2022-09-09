@@ -36,7 +36,7 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                 state.pagingOffset.accept(1)
                 return extra.searchRepository.populateRepositories(
                     query: text,
-                    language: "Swift", // FixMe
+                    language: state.optionLanguage.value,
                     pagingOffset: state.pagingOffset.value
                 )
                 .timeout(.seconds(5), scheduler: MainScheduler.instance)
@@ -61,7 +61,7 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                 state.hudShow.accept(.progress)
                 return extra.searchRepository.populateRepositories(
                     query: text,
-                    language: "Swift", // FixMe
+                    language: state.optionLanguage.value,
                     pagingOffset: state.pagingOffset.value
                 )
                 .timeout(.seconds(5), scheduler: MainScheduler.instance)
@@ -74,6 +74,11 @@ final class CardViewModel: UnioStream<CardViewModel>, CardViewModelType {
                 state.repositoryInfoModels.accept(state.repositoryInfoModels.value + items)
                 state.pagingOffset.accept(state.pagingOffset.value + 1)
                 state.hudHide.accept(())
+            }).disposed(by: disposeBag)
+        
+        input.optionLanguage
+            .subscribe(onNext: { lang in
+                state.optionLanguage.accept(lang)
             }).disposed(by: disposeBag)
         
         // MARK: State
@@ -108,6 +113,7 @@ extension CardViewModel {
         let searchText = PublishRelay<String>()
         let searchButtonClicked = PublishRelay<Void>()
         let willDisplayCell = PublishRelay<Void>()
+        let optionLanguage = PublishRelay<String>()
     }
     
     // MARK: - Output
@@ -127,6 +133,7 @@ extension CardViewModel {
         let repositoryInfoModels = BehaviorRelay<[RepositoryInfoModel]>(value: [])
         let pagingOffset = BehaviorRelay<Int>(value: 1)
         let noResults = PublishRelay<Void>()
+        let optionLanguage = BehaviorRelay<String>(value: "")
     }
     
     // MARK: - Extra
